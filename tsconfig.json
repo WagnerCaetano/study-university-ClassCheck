@@ -1,0 +1,4 @@
+{
+  "buildOptions": { "strict": true },
+  "extends": "@tsconfig/react-native/tsconfig.json"
+}

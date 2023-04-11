@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "class_check",
+    "slug": "class_check",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
