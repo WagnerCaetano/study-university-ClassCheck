@@ -5,7 +5,7 @@ function Home() {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>ClassCheck</Text>
-      <Image style={styles.img} source={require("../../assets/menu-hamburguer.svg")} />
+      <Image style={styles.img} source={require("../../assets/images/menu-hamburguer.svg")} />
     </View>
   );
 }
