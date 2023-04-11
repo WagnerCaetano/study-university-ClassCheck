@@ -5,7 +5,7 @@ import { Container } from "../../global/Container/container";
 export default function OcorrenciasPage() {
   return (
     <Container>
-      <Text>Home Screen</Text>
+      <Text>Ocorrencias Page</Text>
     </Container>
   );
 }

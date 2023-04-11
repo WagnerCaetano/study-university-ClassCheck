@@ -7,7 +7,7 @@ import PerfilPage from "../screens/Perfil/perfil";
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+export default function Tabs() {
   return (
     <NavigationContainer>
       <Tab.Navigator>

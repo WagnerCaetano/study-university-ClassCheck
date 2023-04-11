@@ -3,11 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./src/navigation/tabs";
 
 function App() {
-  return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
-  );
+  return <Tabs />;
 }
 
 export default App;

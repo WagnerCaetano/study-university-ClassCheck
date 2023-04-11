@@ -1,4 +1,5 @@
 {
   "buildOptions": { "strict": true },
+  "compilerOptions": { "noImplicitAny": false },
   "extends": "@tsconfig/react-native/tsconfig.json"
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "648900486609",
+    "project_id": "classcheck-55792",
+    "storage_bucket": "classcheck-55792.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648900486609:android:16904b01d163abd5f52cf0",
+        "android_client_info": {
+          "package_name": "com.classcheckreactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648900486609-dd0tfb2m8tjdreh0alonhbmaobn2aaa5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj_4boI3O03e4vhWjMveiudrLLhdQ6p9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648900486609-dd0tfb2m8tjdreh0alonhbmaobn2aaa5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
