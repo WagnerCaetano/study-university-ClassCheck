@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text, TextInput } from "react-native";
 import { Container } from "../../global/Container/container";
 import styled from "styled-components";
 import ButtonBack from "../../Components/ButtonBack";
@@ -20,6 +20,34 @@ const Title = styled.text`
 
   color: #026A6C;
 `
+
+const Input = styled.input`
+  position: absolute;
+  width: 317px;
+  height: 35px;
+  left: 29px;
+  top: ${props => props.top};
+  border: 0;
+  background: rgba(217, 217, 217, 0.82);
+  border-radius: 10px;
+`
+
+const Description = styled.text`
+  position: absolute;
+  left: 35px;
+  top: ${props => props.top};
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 259.1%;
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+`
 // export a simple home screen component and use styles from styles.ts file as "styled-components"
 export default function PerfilPage() {
   return (
@@ -28,6 +56,17 @@ export default function PerfilPage() {
       <Title width={"193px"} left={"92px"} top={"56px"}>Perfil do Aluno</Title>
       <ProfilePicture/>
       <Title width={"220px"} left={"57px"} top={"333px"}>João Vitor Souza</Title>
+      <Description top={"386px"}>RA (matrícula do aluno)</Description>
+      <Input top={"427px"} placeholder="2022045896" disabled></Input>
+
+      <Description top={"463px"}>Série</Description>
+      <Input top={"504px"} placeholder="3° ano A" disabled></Input>
+
+      <Description top={"540px"}>Contato</Description>
+      <Input top={"581px"} placeholder="(19) 99965-6454" disabled></Input>
+
+      <Description top={"617px"}>E-mail</Description>
+      <Input top={"658px"} placeholder="umemailqualquer@gmail.com" disabled></Input>
     </Container>
   );
 }
