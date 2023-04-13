@@ -20,3 +20,5 @@ const SquaredButton = styled.Button`
   width: 150px;
   border-radius: 14px;
 `;
+
+
