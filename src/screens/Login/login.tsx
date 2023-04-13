@@ -1,21 +1,10 @@
-import { Text, TextInput, Linking } from "react-native";
+import { Text, TextInput, Linking, StyleSheet, ImageBackground } from "react-native";
 import { Container } from "../../global/ContainerView/container";
 import styled from "styled-components";
 import ButtonBack from "../../components/ButtonBack/styles";
 import ProfilePicture from "../../components/ProfilePicture/styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import "./styles";
-
-import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    useColorScheme,
-    View,
-    ImageBackground,
-    Button
-  } from 'react-native';
 import { Link } from "@react-navigation/native";
 
  
@@ -40,7 +29,6 @@ const Div = styled.text`
   
 
 `;
-
 const Botao = styled.button`
 
 width:50%;
@@ -62,7 +50,6 @@ font-size: x-large;
 font-family: Arial, Helvetica, sans-serif;
 ;
 `;
-
 const Input = styled.input`
   position: flex;
   width: 317px;
@@ -79,7 +66,6 @@ const Input = styled.input`
 
   font-family: Arial, Helvetica, sans-serif;
 `;
-
 const Texto = styled.text`
     
    margin-top: 15px;
@@ -96,11 +82,6 @@ const Texto2 = styled.text`
    margin-right: 16rem;
 
 `;
-
-const TextoLink = styled.a`
-    
-`;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -116,9 +97,8 @@ const styles = StyleSheet.create({
     
   },
 });
-// background-image: url("../../assets/Images/Doodle background 1.png");
 
-// export a simple home screen component and use styles from styles.ts file as "styled-components"
+
 export default function HistoricoPage() {
     return (
       <Container>
@@ -128,32 +108,25 @@ export default function HistoricoPage() {
         />
         <Background2>
          <Container>
-         {/* <ImageBackground  
-            source={require('../../assets/Images/Jennifer.png')} 
-            style={{width: '100px', height: '100px'}}  
-        /> */}
-          <Texto>RA do aluno</Texto>
-          <Input></Input>
-          <Texto2>Senha</Texto2>
-          <Input></Input>
-          <Text style={styles.textStyle}> 
-                {' '} 
-         <Text 
-           style={styles.hyperlinkStyle} 
-            onPress={() => { 
-              Linking.openURL('https://reactnative.dev'); 
-    }}> 
-    Esqueci a senha 
-  </Text> 
-</Text>
-          
-         </Container> 
-  
-        <Botao>LOGIN</Botao>
+              {/* <ImageBackground  
+                  source={require('../../assets/Images/Jennifer.png')} 
+                  style={{width: '100px', height: '100px'}}  
+              /> */}
+            <Texto>RA do aluno</Texto>
+            <Input></Input>
+            <Texto2>Senha</Texto2>
+            <Input></Input>
+            <Text style={styles.textStyle}> 
+                  {' '} 
+            <Text 
+            style={styles.hyperlinkStyle} 
+              onPress={() => {Linking.openURL('https://reactnative.dev'); }}>Esqueci a senha</Text> 
+            </Text>
+            
+          </Container> 
+          <Botao>LOGIN</Botao>
         </Background2>
-
       </Container>
-      
     );
   }
   
