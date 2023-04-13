@@ -28,11 +28,11 @@ export default function Tabs() {
             // You can return any component that you like here!
             return <Icon name={iconName} size={size} color={color} />;
           },
-          initialRouteName: "Home",
-          headerShown: false,
-          tabBarActiveTintColor: "#fff",
-          tabBarInactiveTintColor: "#ffffff78",
-          tabBarStyle: {
+            initialRouteName: "Home",
+            headerShown: false,
+            tabBarActiveTintColor: "#fff",
+            tabBarInactiveTintColor: "#ffffff78",
+            tabBarStyle: {
             backgroundColor: "#026A6D",
             borderTopRightRadius: 20,
             borderTopLeftRadius: 20,

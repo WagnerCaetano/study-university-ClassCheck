@@ -39,10 +39,11 @@ position: absolute;
 bottom: 100;
 border-radius: 10px;
 border: 0;
+ 
 
 margin-left: 6rem;
 margin-right: 6rem;
-bottom: 40%;
+bottom: 30%;
 
 background-color: #026A6D;
 color: white;
@@ -54,18 +55,18 @@ const Input = styled.input`
   position: flex;
   width: 317px;
   height: 35px;
-  left: 29px;
-  margin: 2px ;
+  left: 32rem;
   top: ${(props) => props.top};
-
-  margin: 1%;
+  margin: 3%;
 
   border: 0;
   background: #9688882B;
   border-radius: 10px;
 
   font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
 `;
+
 const Texto = styled.text`
     
    margin-top: 15px;
@@ -114,8 +115,8 @@ export default function HistoricoPage() {
               /> */}
             <Texto>RA do aluno</Texto>
             <Input></Input>
-            <Texto2>Senha</Texto2>
-            <Input></Input>
+            <Texto2 >Senha</Texto2>
+            <Input type="password"></Input>
             <Text style={styles.textStyle}> 
                   {' '} 
             <Text 

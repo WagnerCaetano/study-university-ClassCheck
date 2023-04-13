@@ -16,7 +16,7 @@ import {Colors,DebugInstructions,Header,LearnMoreLinks,ReloadInstructions,} from
 
 function App() {
   
-  return <LoginScreen/>
+  return <Tabs/>
     
     };
 
