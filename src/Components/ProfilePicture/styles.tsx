@@ -9,6 +9,7 @@ const Photo = styled.img`
   top: 109px;
   border-radius: 50%;
   border: 4px solid #6dae86;
+  object-fit: cover;
 `;
 
 export default function ProfilePicture() {
