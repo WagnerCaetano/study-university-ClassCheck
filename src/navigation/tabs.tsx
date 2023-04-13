@@ -3,8 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Ionicons";
 import HistoricoPage from "../screens/Historico/historico";
-import HomePage from "../screens/HomeScreen/home";
 import PerfilPage from "../screens/Perfil/perfil";
+import HomePage from "../screens/Home/home";
 
 const Tab = createBottomTabNavigator();
 

@@ -1,8 +1,8 @@
 import { Text, TextInput } from "react-native";
-import { Container } from "../../Components/Container/container";
+import { Container } from "../../global/ContainerView/container";
 import styled from "styled-components";
-import ButtonBack from "../../Components/ButtonBack/styles";
-import ProfilePicture from "../../Components/ProfilePicture/styles";
+import ButtonBack from "../../components/ButtonBack/styles";
+import ProfilePicture from "../../components/ProfilePicture/styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Title = styled.text`

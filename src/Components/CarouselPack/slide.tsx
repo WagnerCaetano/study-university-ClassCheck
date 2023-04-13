@@ -4,11 +4,11 @@ export function Slide({ data }) {
   return (
     <View
       style={{
-        height: "30vh",
+        height: "20vh",
         width: "85vw",
       }}
     >
-      <Image source={{ uri: data.image }} style={{ width: "85vw", height: "30vh" }}></Image>
+      <Image source={{ uri: data.image }} style={{ width: "85vw", height: "20vh" }}></Image>
     </View>
   );
 }

@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import { Container } from "../../Components/Container/container";
+import { Container } from "../../global/ContainerView/container";
 
 // export a simple home screen component and use styles from styles.ts file as "styled-components"
 export default function HistoricoPage() {
