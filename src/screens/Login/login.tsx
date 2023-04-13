@@ -31,9 +31,9 @@ const Div = styled.text`
 `;
 const Botao = styled.button`
 
-width:50%;
-height: 15%;
-padding  : 100 ;
+width: 50%;
+height: 10%;
+padding: 100 ;
 display: inline-block ;
 position: absolute;
 bottom: 100;
@@ -42,7 +42,7 @@ border: 0;
 
 margin-left: 6rem;
 margin-right: 6rem;
-bottom: 25%;
+bottom: 40%;
 
 background-color: #026A6D;
 color: white;
@@ -120,7 +120,7 @@ export default function HistoricoPage() {
                   {' '} 
             <Text 
             style={styles.hyperlinkStyle} 
-              onPress={() => {Linking.openURL('https://reactnative.dev'); }}>Esqueci a senha</Text> 
+              onPress={() => {Linking.openURL('https://chat.openai.com/'); }}>Esqueci a senha</Text> 
             </Text>
             
           </Container> 
