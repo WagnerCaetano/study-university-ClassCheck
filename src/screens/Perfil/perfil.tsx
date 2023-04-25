@@ -1,4 +1,4 @@
-import { Text, TextInput } from "react-native";
+import { Text, TextInput, ScrollView } from "react-native";
 import { Container } from "../../global/ContainerView/container";
 import styled from "styled-components";
 import ButtonBack from "../../components/ButtonBack/styles";
@@ -52,7 +52,7 @@ const Description = styled.text`
 // export a simple home screen component and use styles from styles.ts file as "styled-components"
 export default function PerfilPage() {
   return (
-    <Container>
+    <ScrollView>
       <ButtonBack />
       <Title width={"193px"} left={"92px"} top={"56px"}>
         Perfil do Aluno
@@ -73,6 +73,6 @@ export default function PerfilPage() {
 
       <Description top={"617px"}>E-mail</Description>
       <Input top={"658px"} placeholder="umemailqualquer@gmail.com" disabled></Input>
-    </Container>
+    </ScrollView>
   );
 }
