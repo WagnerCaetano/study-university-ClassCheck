@@ -1,7 +1,7 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { Container } from "../../global/ContainerView/container";
 import { PersonImage } from "../../global/PersonImage/styles";
-import { Row } from "./styles";
+import { Heading, Paragraph, Row } from "./styles";
 import React from "react";
 import { CarouselComponent } from "../../components/CarouselPack/carousel";
 import ButtonWrapper from "../../components/ButtonWrapper/buttonWrapper";
@@ -18,14 +18,15 @@ export default function HomePage() {
     <Container>
       <Row>
         <View>
-          <Text>Bem-vindo ao ClassCheck</Text>
-          <Text>Vamos te ajudar a manter seu filho seguro</Text>
+          <Heading>Bem-vindo ao ClassCheck</Heading>
+          <Paragraph>Vamos te ajudar a manter seu filho seguro</Paragraph>
         </View>
         <PersonImage source={require("./../../assets/placeholder/ProfilePicture.png")} />
       </Row>
       <Row>
         <CarouselComponent slideList={slideList} />
       </Row>
+      <Heading>Navegue por aqui</Heading>
       <ButtonWrapper />
     </Container>
   );

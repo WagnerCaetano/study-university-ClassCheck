@@ -31,7 +31,7 @@ export function CarouselComponent({ slideList }) {
   return (
     <FlatList
       data={slideList}
-      style={{ flex: 1 }}
+      style={{ flex: 1, padding: 0, margin: 0 }}
       renderItem={({ item }) => {
         return <Slide data={item} />;
       }}

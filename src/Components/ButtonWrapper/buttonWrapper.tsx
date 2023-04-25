@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, Image } from "react-native";
 import styled from "styled-components/native";
 
 const Wrapper = styled(View)`
@@ -17,6 +17,7 @@ const ButtonContainer = styled(View)`
 const Button = styled(TouchableOpacity)`
   width: 156px;
   height: 156px;
+  border-radius: 10%;
   background-color: #ccc;
   margin: 6px;
   align-items: center;
@@ -33,6 +34,7 @@ const ButtonWrapper = () => {
     <Wrapper>
       <ButtonContainer>
         <Button>
+          <Image source={{ uri: "https://picsum.photos/1440/2842?random=1" }} style={{ width: "100%", height: "100%" }}></Image>
           <ButtonText>Button 1</ButtonText>
         </Button>
         <Button>
