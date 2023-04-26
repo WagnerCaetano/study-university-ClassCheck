@@ -1,11 +1,9 @@
 import { Text, TextInput, Linking, StyleSheet, ImageBackground } from "react-native";
 import { Container } from "../../global/ContainerView/container";
 import styled from "styled-components";
-import ButtonBack from "../../components/ButtonBack/styles";
-import ProfilePicture from "../../components/ProfilePicture/styles";
-import Icon from "react-native-vector-icons/FontAwesome";
+
 import "./styles";
-import { Link } from "@react-navigation/native";
+
 
  
 
@@ -66,7 +64,6 @@ const Input = styled.input`
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
 `;
-
 const Texto = styled.text`
     
    margin-top: 15px;
@@ -113,6 +110,7 @@ export default function HistoricoPage() {
                   source={require('../../assets/Images/Jennifer.png')} 
                   style={{width: '100px', height: '100px'}}  
               /> */}
+              
             <Texto>RA do aluno</Texto>
             <Input></Input>
             <Texto2 >Senha</Texto2>
@@ -123,6 +121,7 @@ export default function HistoricoPage() {
             style={styles.hyperlinkStyle} 
               onPress={() => {Linking.openURL('https://chat.openai.com/'); }}>Esqueci a senha</Text> 
             </Text>
+            
             
           </Container> 
           <Botao>LOGIN</Botao>

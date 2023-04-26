@@ -1,6 +1,7 @@
 import React from "react";
 import Tabs from "./src/navigation/tabs";
 import LoginScreen from "./src/screens/Login/login";
+
 import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,} from 'react-native';
 import {Colors,DebugInstructions,Header,LearnMoreLinks,ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
 
@@ -16,7 +17,7 @@ import {Colors,DebugInstructions,Header,LearnMoreLinks,ReloadInstructions,} from
 
 function App() {
   
-  return <Tabs/>
+  return <LoginScreen/>
     
     };
 
