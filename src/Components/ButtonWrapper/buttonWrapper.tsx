@@ -25,28 +25,29 @@ const Button = styled(TouchableOpacity)`
 `;
 
 const ButtonText = styled(Text)`
-  color: #fff;
+  color: #ffffff;
   font-size: 20px;
+  font-family: Lato-Bold;
 `;
 
 const ButtonWrapper = () => {
   return (
     <Wrapper>
       <ButtonContainer>
-        <Button>
-          <Image source={{ uri: "https://picsum.photos/1440/2842?random=1" }} style={{ width: "100%", height: "100%" }}></Image>
-          <ButtonText>Button 1</ButtonText>
+      <Button style={{ backgroundColor: "#32C2B9" }}>
+          <Image source= {require('@../../assets/Images/LOCATION.png')} style={{ width: "5%", height: "5%" }}></Image>
+          <ButtonText>PRESENÇA</ButtonText>
         </Button>
-        <Button>
-          <ButtonText>Button 2</ButtonText>
+        <Button style={{ backgroundColor: "#EEC72E" }}>
+          <ButtonText>PERFIL</ButtonText>
         </Button>
       </ButtonContainer>
       <ButtonContainer>
-        <Button>
-          <ButtonText>Button 3</ButtonText>
+      <Button style={{ backgroundColor: "#7BD164" }}>
+          <ButtonText>SUPORTE</ButtonText>
         </Button>
-        <Button>
-          <ButtonText>Button 4</ButtonText>
+        <Button style={{ backgroundColor: "#F08638" }}>
+          <ButtonText>CALENDÁRIO</ButtonText>
         </Button>
       </ButtonContainer>
     </Wrapper>
