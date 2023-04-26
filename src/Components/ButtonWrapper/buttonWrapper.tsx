@@ -34,8 +34,8 @@ const ButtonWrapper = () => {
   return (
     <Wrapper>
       <ButtonContainer>
-      <Button style={{ backgroundColor: "#32C2B9" }}>
-          <Image source= {require('@../../assets/Images/LOCATION.png')} style={{ width: "5%", height: "5%" }}></Image>
+        <Button style={{ backgroundColor: "#32C2B9" }}>
+          <Image source={require("../../assets/Images/LOCATION.png")} style={{ width: "5%", height: "5%" }}></Image>
           <ButtonText>PRESENÇA</ButtonText>
         </Button>
         <Button style={{ backgroundColor: "#EEC72E" }}>
@@ -43,7 +43,7 @@ const ButtonWrapper = () => {
         </Button>
       </ButtonContainer>
       <ButtonContainer>
-      <Button style={{ backgroundColor: "#7BD164" }}>
+        <Button style={{ backgroundColor: "#7BD164" }}>
           <ButtonText>SUPORTE</ButtonText>
         </Button>
         <Button style={{ backgroundColor: "#F08638" }}>
