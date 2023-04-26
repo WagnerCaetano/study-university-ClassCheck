@@ -4,50 +4,39 @@ import styled from "styled-components";
 
 import "./styles";
 
-
- 
-
 const Background2 = styled.object`
   /* position: absolute; */
   width: 100%;
   height: 65%;
-  
-  position:  fixed;
+
+  position: fixed;
   bottom: 0%;
 
   background-color: #ffffff;
-  
 
-  border-top-left-radius  : 11ch;
-  border-top-right-radius : 11ch;
+  border-top-left-radius: 11ch;
+  border-top-right-radius: 11ch;
   font-family: Arial, Helvetica, sans-serif;
-
-`; 
-const Div = styled.text`
-  
-
 `;
+const Div = styled.text``;
 const Botao = styled.button`
+  width: 50%;
+  height: 10%;
+  padding: 100;
+  display: inline-block;
+  position: absolute;
+  bottom: 100;
+  border-radius: 10px;
+  border: 0;
 
-width: 50%;
-height: 10%;
-padding: 100 ;
-display: inline-block ;
-position: absolute;
-bottom: 100;
-border-radius: 10px;
-border: 0;
- 
+  margin-left: 6rem;
+  margin-right: 6rem;
+  bottom: 30%;
 
-margin-left: 6rem;
-margin-right: 6rem;
-bottom: 30%;
-
-background-color: #026A6D;
-color: white;
-font-size: x-large;
-font-family: Arial, Helvetica, sans-serif;
-;
+  background-color: #026a6d;
+  color: white;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 const Input = styled.input`
   position: flex;
@@ -58,75 +47,68 @@ const Input = styled.input`
   margin: 3%;
 
   border: 0;
-  background: #9688882B;
+  background: #9688882b;
   border-radius: 10px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
 `;
 const Texto = styled.text`
-    
-   margin-top: 15px;
-   font-size: large;
-   font-family: Arial, Helvetica, sans-serif;
-   margin-right: 13rem;
-
+  margin-top: 15px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 13rem;
 `;
 const Texto2 = styled.text`
-    
-   margin-top: 15px;
-   font-size: large;
-   font-family: Arial, Helvetica, sans-serif;
-   margin-right: 16rem;
-
+  margin-top: 15px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 16rem;
 `;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   
-    alignItems: 'flex-end',
+
+    alignItems: "flex-end",
   },
   textStyle: {
-    fontSize: '18px',
-    marginLeft: '9rem'
+    fontSize: "18px",
+    marginLeft: "9rem",
   },
   hyperlinkStyle: {
-    color: 'gray',
-    
+    color: "gray",
   },
 });
 
-
-export default function HistoricoPage() {
-    return (
-      <Container>
-        <ImageBackground  
-            source={require('../../assets/Images/fundocolorido.png')} 
-            style={{width: '30rem', height: '50rem', position: "absolute", top: 0, bottom: 10}}  
-        />
-        <Background2>
-         <Container>
-              {/* <ImageBackground  
+export default function LoginPage() {
+  return (
+    <Container>
+      <ImageBackground source={require("../../assets/Images/fundocolorido.png")} style={{ width: "30rem", height: "50rem", position: "absolute", top: 0, bottom: 10 }} />
+      <Background2>
+        <Container>
+          {/* <ImageBackground  
                   source={require('../../assets/Images/Jennifer.png')} 
                   style={{width: '100px', height: '100px'}}  
               /> */}
-              
-            <Texto>RA do aluno</Texto>
-            <Input></Input>
-            <Texto2 >Senha</Texto2>
-            <Input type="password"></Input>
-            <Text style={styles.textStyle}> 
-                  {' '} 
-            <Text 
-            style={styles.hyperlinkStyle} 
-              onPress={() => {Linking.openURL('https://chat.openai.com/'); }}>Esqueci a senha</Text> 
+
+          <Texto>RA do aluno</Texto>
+          <Input></Input>
+          <Texto2>Senha</Texto2>
+          <Input type="password"></Input>
+          <Text style={styles.textStyle}>
+            {" "}
+            <Text
+              style={styles.hyperlinkStyle}
+              onPress={() => {
+                Linking.openURL("https://chat.openai.com/");
+              }}
+            >
+              Esqueci a senha
             </Text>
-            
-            
-          </Container> 
-          <Botao>LOGIN</Botao>
-        </Background2>
-      </Container>
-    );
-  }
-  
+          </Text>
+        </Container>
+        <Botao>LOGIN</Botao>
+      </Background2>
+    </Container>
+  );
+}

@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, View } from "react-native";
+import styled from "styled-components/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Container } from "./src/global/ContainerView/container";
 import Tabs from "./src/navigation/tabs";
-import LoginScreen from "./src/screens/Login/login";
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from "react-native";
-import { Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions } from "react-native/Libraries/NewAppScreen";
-import CalendarioPage from "./src/screens/Calendario/calendario";
+import LoginPage from "./src/screens/Login/login";
 
-// type SectionProps = PropsWithChildren<{
-//   title: string;
-// }>;
+const Loading = () => (
+  <Container>
+    <ActivityIndicator size="large" color="#0000ff" />
+  </Container>
+);
 
-// function Section({children, title}: SectionProps): JSX.Element {
-//   const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-// const estalogado = false;
-// return <> estalogado ? <Tabs/> : <LoginScreen/> </>;
+  useEffect(() => {
+    const checkLogin = async () => {
+      const customer = await AsyncStorage.getItem("customer");
+      setLoggedIn(customer !== null);
+      setLoading(false);
+    };
+    checkLogin();
+  }, []);
 
-function App() {
-  return /*<Tabs />;*/ <CalendarioPage />;
-}
+  if (loading) {
+    return <Loading />;
+  }
+
+  return loggedIn ? <Tabs /> : <LoginPage />;
+};
 
 export default App;
