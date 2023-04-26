@@ -6,7 +6,11 @@ import React from "react";
 import { CarouselComponent } from "../../components/CarouselPack/carousel";
 import ButtonWrapper from "../../components/ButtonWrapper/buttonWrapper";
 
-export default function HomePage() {
+type HomeProps = {
+  navigation: any;
+};
+
+export default function HomePage(props: HomeProps) {
   const slideList = Array.from({ length: 4 }).map((_, i) => {
     return {
       id: i,

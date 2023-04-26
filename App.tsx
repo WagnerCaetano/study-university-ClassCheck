@@ -16,7 +16,7 @@ import CalendarioPage from "./src/screens/Calendario/calendario";
 // return <> estalogado ? <Tabs/> : <LoginScreen/> </>;
 
 function App() {
-  return <Tabs />; // <CalendarioPage />
+  return /*<Tabs />;*/ <CalendarioPage />;
 }
 
 export default App;
