@@ -29,7 +29,7 @@ const App = () => {
     return <Loading />;
   }
 
-  return loggedIn ? <Tabs /> : <LoginPage />;
+  return /*loggedIn ?*/ <Tabs /> /*: <LoginPage onLogin={undefined} navigation={undefined} />*/;
 };
 
 export default App;

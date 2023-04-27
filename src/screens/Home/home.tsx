@@ -11,12 +11,7 @@ type HomeProps = {
 };
 
 export default function HomePage(props: HomeProps) {
-  const slideList = Array.from({ length: 4 }).map((_, i) => {
-    return {
-      id: i,
-      image: `https://picsum.photos/1440/2842?random=${i}`,
-    };
-  });
+  const slideList = [{ id: "01", image: "./../../assets/placeholder/placeholder_aviso.png" }];
 
   return (
     <Container>

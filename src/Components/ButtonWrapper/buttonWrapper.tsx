@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import styled from "styled-components/native";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 
 const Wrapper = styled(View)`
   flex: 1;
@@ -35,7 +35,9 @@ const ButtonWrapper = () => {
   return (
     <Wrapper>
       <ButtonContainer>
-        <Button style={{background: "linear-gradient(#e66465, #9198e5);" }}>PRESENÇA</Button>
+        <Button style={{ background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);" }}>
+          <ButtonText>PRESENÇA</ButtonText>
+        </Button>
         <Button style={{ backgroundColor: "#EEC72E" }}>
           <ButtonText>PERFIL</ButtonText>
         </Button>
