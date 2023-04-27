@@ -3,38 +3,45 @@ import { Container } from "../../global/ContainerView/container";
 import styled from "styled-components";
 import "./styles";
 import { useEffect } from "react";
+import { user_login } from "../../api/user_api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
-const Login = ({ onLogin }) => {
-  const userRef = useRed();
-  const errRef = useRef();
-
+const Login = ({ onLogin,navigation }) => {
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const [errMsg, setErrMsg] = useState('');
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, [])
 
-  useEffect(() => {
-    setErrMsg('');
-  }, [username, password])
-
+  const checkPasswordValidity = value => {
+    const isNonWhiteSpace = /^\S*$/;
+    if (!isNonWhiteSpace.test(value)) {
+      return 'Password must not contain Whitespaces.';
+    }
 
   const handleLogin = async () => {
-    // Perform login logic here
-    // ...
+   const checkPassword = checkPasswordValidity(password);
+    if(!checkPassword){
+      user_login({
+        username:username,
+        password:password
+      }).then((result) => {
+        if(result.status == 200){
+          AsyncStorage.setItem("AccessToken", result.data.token)
+          onLogin.replace("Home")
+        }
+      })
+      .catch(err => {
+        console.error(err);
+      }); 
+    } else{
+      alert(checkPassword)
+    }
 
-    // Store customer data in AsyncStorage
     await AsyncStorage.setItem('customer', username);
-
-    // Call the onLogin callback function with the customer data
     onLogin(username);
   };
-
-
+};
 const Background2 = styled.object`
   /* position: absolute; */
   width: 100%;
@@ -114,8 +121,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 }
 
-
- function LoginPage() {
+export default function LoginPage() {
   return (
     <Container>
       <ImageBackground source={require("../../assets/Images/fundocolorido.png")} style={{ width: "30rem", height: "50rem", position: "absolute", top: 0, bottom: 10 }} />
@@ -127,23 +133,16 @@ const handleSubmit = async (e) => {
               /> */}
           <form onSubmit={handleSubmit}/>
           <Texto>RA do aluno</Texto>
-          <Input
-          type="text"
-            id="username"
-            placeholder="Username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setPassword(e.target.value)}
+          <TextInput         
+            placeholder="username"
             value={username}
-            required
           />
           <Texto2>Senha</Texto2>
-          <Input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
+          <TextInput
+            placeholder="Password"
             value={password}
-            required
+            secureTextEntry={setPassword}
+            onChangeText={text => setPassword(text)}
           />
           <Text style={styles.textStyle}>
             {" "}
