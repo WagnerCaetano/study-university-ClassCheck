@@ -1,6 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import styled from "styled-components/native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Wrapper = styled(View)`
   flex: 1;
@@ -25,7 +26,7 @@ const Button = styled(TouchableOpacity)`
 `;
 
 const ButtonText = styled(Text)`
-  color: #ffffff;
+  color: #d31919;
   font-size: 20px;
   font-family: Lato-Bold;
 `;
@@ -34,10 +35,7 @@ const ButtonWrapper = () => {
   return (
     <Wrapper>
       <ButtonContainer>
-        <Button style={{ backgroundColor: "#32C2B9" }}>
-          <Image source={require("../../assets/Images/LOCATION.png")} style={{ width: "5%", height: "5%" }}></Image>
-          <ButtonText>PRESENÇA</ButtonText>
-        </Button>
+        <Button style={{background: "linear-gradient(#e66465, #9198e5);" }}>PRESENÇA</Button>
         <Button style={{ backgroundColor: "#EEC72E" }}>
           <ButtonText>PERFIL</ButtonText>
         </Button>
