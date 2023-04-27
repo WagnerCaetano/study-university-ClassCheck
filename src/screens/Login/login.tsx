@@ -11,8 +11,6 @@ const Login = ({ onLogin,navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-
-
   const checkPasswordValidity = value => {
     const isNonWhiteSpace = /^\S*$/;
     if (!isNonWhiteSpace.test(value)) {
@@ -42,6 +40,58 @@ const Login = ({ onLogin,navigation }) => {
     onLogin(username);
   };
 };
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+};
+
+export default function LoginPage() {
+  return (
+    <Container>
+      <ImageBackground source={require("../../assets/Images/fundocolorido.png")} style={{ width: "30rem", height: "50rem", position: "absolute", top: 0, bottom: 10 }} />
+      <Background2>
+        <Container>
+          {/* <ImageBackground  
+                  source={require('../../assets/Images/Jennifer.png')} 
+                  style={{width: '100px', height: '100px'}}  
+              /> */}
+          <form onSubmit={handleSubmit}/>
+          <Texto>RA do aluno</Texto>
+          <TextInput         
+            placeholder="username"
+            value={username}
+          />
+          <Texto2>Senha</Texto2>
+          <TextInput
+            placeholder="Password"
+            value={password}
+            secureTextEntry={setPassword}
+            onChangeText={text => setPassword(text)}
+          />
+          <Text style={styles.textStyle}>
+            {" "}
+            <Text
+              style={styles.hyperlinkStyle}
+              onPress={() => {
+                Linking.openURL("https://chat.openai.com/");
+              }}
+            >
+              Esqueci a senha
+            </Text>
+          </Text>
+        </Container>
+        <Botao>Sign In</Botao>
+      </Background2>
+    </Container>
+  );
+}}
+
+
+
+
+
+
 const Background2 = styled.object`
   /* position: absolute; */
   width: 100%;
@@ -117,48 +167,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-}
-
-export default function LoginPage() {
-  return (
-    <Container>
-      <ImageBackground source={require("../../assets/Images/fundocolorido.png")} style={{ width: "30rem", height: "50rem", position: "absolute", top: 0, bottom: 10 }} />
-      <Background2>
-        <Container>
-          {/* <ImageBackground  
-                  source={require('../../assets/Images/Jennifer.png')} 
-                  style={{width: '100px', height: '100px'}}  
-              /> */}
-          <form onSubmit={handleSubmit}/>
-          <Texto>RA do aluno</Texto>
-          <TextInput         
-            placeholder="username"
-            value={username}
-          />
-          <Texto2>Senha</Texto2>
-          <TextInput
-            placeholder="Password"
-            value={password}
-            secureTextEntry={setPassword}
-            onChangeText={text => setPassword(text)}
-          />
-          <Text style={styles.textStyle}>
-            {" "}
-            <Text
-              style={styles.hyperlinkStyle}
-              onPress={() => {
-                Linking.openURL("https://chat.openai.com/");
-              }}
-            >
-              Esqueci a senha
-            </Text>
-          </Text>
-        </Container>
-        <Botao>Sign In</Botao>
-      </Background2>
-    </Container>
-  );
-}}
 export default Login;
