@@ -1,8 +1,39 @@
 import { Text, TextInput, Linking, StyleSheet, ImageBackground } from "react-native";
 import { Container } from "../../global/ContainerView/container";
 import styled from "styled-components";
-
 import "./styles";
+import { useEffect } from "react";
+
+
+const Login = ({ onLogin }) => {
+  const userRef = useRed();
+  const errRef = useRef();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [errMsg, setErrMsg] = useState('');
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, [])
+
+  useEffect(() => {
+    setErrMsg('');
+  }, [username, password])
+
+
+  const handleLogin = async () => {
+    // Perform login logic here
+    // ...
+
+    // Store customer data in AsyncStorage
+    await AsyncStorage.setItem('customer', username);
+
+    // Call the onLogin callback function with the customer data
+    onLogin(username);
+  };
+
 
 const Background2 = styled.object`
   /* position: absolute; */
@@ -18,7 +49,6 @@ const Background2 = styled.object`
   border-top-right-radius: 11ch;
   font-family: Arial, Helvetica, sans-serif;
 `;
-const Div = styled.text``;
 const Botao = styled.button`
   width: 50%;
   height: 10%;
@@ -80,7 +110,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function LoginPage() {
+const handleSubmit = async (e) => {
+  e.preventDefault();
+}
+
+
+ function LoginPage() {
   return (
     <Container>
       <ImageBackground source={require("../../assets/Images/fundocolorido.png")} style={{ width: "30rem", height: "50rem", position: "absolute", top: 0, bottom: 10 }} />
@@ -90,11 +125,26 @@ export default function LoginPage() {
                   source={require('../../assets/Images/Jennifer.png')} 
                   style={{width: '100px', height: '100px'}}  
               /> */}
-
+          <form onSubmit={handleSubmit}/>
           <Texto>RA do aluno</Texto>
-          <Input></Input>
+          <Input
+          type="text"
+            id="username"
+            placeholder="Username"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setPassword(e.target.value)}
+            value={username}
+            required
+          />
           <Texto2>Senha</Texto2>
-          <Input type="password"></Input>
+          <Input
+            type="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
           <Text style={styles.textStyle}>
             {" "}
             <Text
@@ -107,8 +157,9 @@ export default function LoginPage() {
             </Text>
           </Text>
         </Container>
-        <Botao>LOGIN</Botao>
+        <Botao>Sign In</Botao>
       </Background2>
     </Container>
   );
-}
+}}
+export default Login;

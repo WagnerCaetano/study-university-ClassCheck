@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import HistoricoPage from "../screens/Historico/historico";
 import PerfilPage from "../screens/Perfil/perfil";
 import HomePage from "../screens/Home/home";
+import LoginPage from "../screens/Login/login";
 
 const Tab = createBottomTabNavigator();
 
