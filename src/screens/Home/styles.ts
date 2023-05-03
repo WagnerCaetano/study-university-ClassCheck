@@ -11,9 +11,10 @@ export const Row = styled.View`
 
 export const Heading = styled.Text`
   font-size: 18;
-  font-weight: 600;
-  color: #000;
-  font-family: "Montserrat";
+  font-weight: 700;
+  color: #026A6C;
+  font-family: 'Montserrat-Regular';
+  
 `;
 
 export const Paragraph = styled.Text`
