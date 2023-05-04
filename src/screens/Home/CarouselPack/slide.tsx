@@ -11,7 +11,7 @@ export function Slide({ data }) {
         padding: 0,
       }}
     >
-      <Image source={require("./../../assets/placeholder/placeholder_aviso.png")} style={{ width: "85vw", height: "20vh" }}></Image>
+      <Image source={{ uri: data.image }} style={{ width: "85vw", height: "20vh" }} />
     </View>
   );
 }
