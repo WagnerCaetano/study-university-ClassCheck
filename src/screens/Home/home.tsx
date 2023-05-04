@@ -1,7 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import { Container } from "../../global/ContainerView/container";
 import { PersonImage } from "../../global/PersonImage/styles";
-import { Heading, Paragraph, Row } from "./styles";
+import { Heading, Paragraph, Row, TextoHome } from "./styles";
 import React from "react";
 import { CarouselComponent } from "../../components/CarouselPack/carousel";
 import ButtonWrapper from "../../components/ButtonWrapper/buttonWrapper";
@@ -25,7 +25,7 @@ export default function HomePage(props: HomeProps) {
       <Row>
         <CarouselComponent slideList={slideList} />
       </Row>
-      <Heading>Navegue por aqui</Heading>
+      <TextoHome>Navegue por aqui</TextoHome>
       <ButtonWrapper />
     </Container>
   );

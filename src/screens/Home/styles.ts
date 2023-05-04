@@ -24,8 +24,8 @@ export const Paragraph = styled.Text`
   font-family: "Montserrat";
 `;
 
-const ButtonWrapper = styled.View`
-  height: 200px;
+export const ButtonWrapper = styled.View`
+  height: 250px;
   width: 150px;
   border-radius: 14px;
 `;
@@ -34,4 +34,18 @@ const SquaredButton = styled.Button`
   height: 200px;
   width: 150px;
   border-radius: 14px;
+`;
+export const TextoHome = styled.Text`
+  color: #026A6C;
+  position: absolute;
+  width: 242px;
+  height: 23px;
+  left: 30px;
+  top: 41%;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
 `;
