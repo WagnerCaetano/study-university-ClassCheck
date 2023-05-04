@@ -3,8 +3,8 @@ import { Container } from "../../global/ContainerView/container";
 import { PersonImage } from "../../global/PersonImage/styles";
 import { Heading, Paragraph, Row, TextoHome } from "./styles";
 import React from "react";
-import { CarouselComponent } from "../../components/CarouselPack/carousel";
-import ButtonWrapper from "../../components/ButtonWrapper/buttonWrapper";
+import { CarouselComponent } from "./CarouselPack/carousel";
+import ButtonWrapper from "./ButtonWrapper/buttonWrapper";
 
 type HomeProps = {
   navigation: any;

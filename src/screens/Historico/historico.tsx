@@ -1,11 +1,54 @@
-import { Text } from "react-native";
-import { Container } from "../../global/ContainerView/container";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import styled from "styled-components/native";
+import { Container, Header, ExpandedLabel, ExpandedLabelText, HeaderLabel, BoxContainer, BoxText, ListContainer, ListItem, ListItemText } from "./styles";
 
-// export a simple home screen component and use styles from styles.ts file as "styled-components"
-export default function HistoricoPage() {
+const HistoricoPage = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleExpand = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleItemPress = () => {
+    setExpanded(true);
+  };
+
   return (
     <Container>
-      <Text>Historico Page</Text>
+      <Header>
+        {expanded ? (
+          <ExpandedLabel>
+            <ExpandedLabelText>This is the expanded header label</ExpandedLabelText>
+          </ExpandedLabel>
+        ) : (
+          <TouchableOpacity onPress={handleExpand}>
+            <HeaderLabel>This is the header label</HeaderLabel>
+          </TouchableOpacity>
+        )}
+      </Header>
+      <BoxContainer>
+        <BoxText>This is a placeholder text inside a box</BoxText>
+      </BoxContainer>
+      {expanded ? (
+        <BoxContainer>
+          <BoxText>This is an expanded placeholder text inside a box</BoxText>
+        </BoxContainer>
+      ) : (
+        <ListContainer>
+          <ListItem onPress={handleItemPress}>
+            <ListItemText>Item 1</ListItemText>
+          </ListItem>
+          <ListItem onPress={handleItemPress}>
+            <ListItemText>Item 2</ListItemText>
+          </ListItem>
+          <ListItem onPress={handleItemPress}>
+            <ListItemText>Item 3</ListItemText>
+          </ListItem>
+        </ListContainer>
+      )}
     </Container>
   );
-}
+};
+
+export default HistoricoPage;

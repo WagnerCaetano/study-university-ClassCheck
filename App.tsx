@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
-import styled from "styled-components/native";
+import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Container } from "./src/global/ContainerView/container";
 import Tabs from "./src/navigation/tabs";
@@ -18,18 +17,32 @@ const App = () => {
 
   useEffect(() => {
     const checkLogin = async () => {
-      const customer = await AsyncStorage.getItem("customer");
-      setLoggedIn(customer !== null);
-      setLoading(false);
+      try {
+        const customer = await AsyncStorage.getItem("customer");
+        setLoggedIn(customer !== null);
+      } catch (error) {
+        console.log("Error in fetching customer from storage:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     checkLogin();
   }, []);
+
+  const onLogin = async (username) => {
+    try {
+      await AsyncStorage.setItem("customer", username);
+      setLoggedIn(true);
+    } catch (error) {
+      console.log("Error in setting customer in storage:", error);
+    }
+  };
 
   if (loading) {
     return <Loading />;
   }
 
-  return /*loggedIn ?*/ <Tabs /> /*: <LoginPage onLogin={undefined} navigation={undefined} />*/;
+  return /*loggedIn ?*/ <Tabs /> /*: <LoginPage onLogin={onLogin} />*/;
 };
 
 export default App;

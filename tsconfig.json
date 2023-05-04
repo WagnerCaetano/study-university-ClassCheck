@@ -1,5 +1,8 @@
 {
   "buildOptions": { "strict": true },
-  "compilerOptions": { "noImplicitAny": false },
+  "compilerOptions": {
+    "jsx": "react",
+    "noImplicitAny": false
+  },
   "extends": "@tsconfig/react-native/tsconfig.json"
 }
