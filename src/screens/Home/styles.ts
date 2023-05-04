@@ -42,8 +42,7 @@ export const TextoHome = styled.Text`
   height: 23px;
   left: 30px;
   top: 41%;
-  font-family: 'Montserrat';
-  font-style: normal;
+  font-family: 'Montserrat-Regular';
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
