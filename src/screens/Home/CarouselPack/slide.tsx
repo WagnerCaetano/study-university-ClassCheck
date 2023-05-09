@@ -1,3 +1,4 @@
+import * as React from "react";
 import { View, Image, Text } from "react-native";
 
 export function Slide({ data }) {

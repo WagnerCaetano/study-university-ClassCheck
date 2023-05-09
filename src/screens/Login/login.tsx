@@ -1,23 +1,16 @@
-import { Text, Linking, StyleSheet, View } from "react-native";
-import { Container } from "../../global/ContainerView/container";
-import React, { useState } from "react";
-import { user_login } from "../../api/user_api";
+import * as React from "react";
 import { LoginButton, LabelText, Input, ColorfulBackground, LoginContainer, LoginButtonText } from "./styles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ThemeProvider } from "styled-components";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { Auth } from "aws-amplify";
+import { Alert } from "react-native";
 
-const styles = StyleSheet.create({
-  textStyle: {
-    fontSize: 18,
-  },
-  hyperlinkStyle: {
-    color: "gray",
-  },
-});
-
-const LoginPage = ({ onLogin }) => {
+const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
 
   const checkPasswordValidity = (value) => {
     const isNonWhiteSpace = /^\S*$/;
@@ -26,52 +19,41 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const checkPassword = checkPasswordValidity(password);
-
-    if (!checkPassword) {
-      user_login({
-        username: username,
-        password: password,
-      })
-        .then((result) => {
-          if (result.status == 200) {
-            AsyncStorage.setItem("AccessToken", result.data.token);
-            onLogin.replace("Home");
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      console.log(checkPassword);
+  const onSignInPressed = async (data) => {
+    if (loading) {
+      return;
     }
 
-    await AsyncStorage.setItem("customer", username);
-    onLogin(username);
+    setLoading(true);
+
+    try {
+      const response = await Auth.signIn(data.username, data.password);
+      console.log(response);
+      navigation.navigate("Home");
+    } catch (error: any) {
+      Alert.alert("Ops erro no login", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onForgotPasswordPressed = () => {
+    //navigation.navigate("ForgotPassword");
   };
 
   return (
     <ColorfulBackground>
       <LoginContainer>
         <LabelText>RA do aluno</LabelText>
-        <Input placeholder="Nome" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <Input placeholder="RA do Aluno" value={username} onChangeText={setUsername} />
         <LabelText>Senha</LabelText>
-        <Input placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} secureTextEntry={true} />
-        <Text style={styles.textStyle}>
-          <Text
-            style={styles.hyperlinkStyle}
-            onPress={() => {
-              Linking.openURL("https://chat.openai.com/");
-            }}
-          >
-            Esqueci a senha
-          </Text>
-        </Text>
-        <LoginButton onClick={handleSubmit}>
-          <LoginButtonText>Entrar</LoginButtonText>
+        <Input placeholder="Senha" value={password} onChangeText={setPassword} secureTextEntry />
+        <LabelText onPress={onForgotPasswordPressed}>Esqueci a senha</LabelText>
+        <LoginButton>
+          <LoginButtonText onClick={() => onSignInPressed({ username, password })}>
+            {" "}
+            {loading ? "Carregando" : "Entrar"}
+          </LoginButtonText>
         </LoginButton>
       </LoginContainer>
     </ColorfulBackground>

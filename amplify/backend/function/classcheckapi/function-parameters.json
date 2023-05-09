@@ -1,0 +1,10 @@
+{
+  "permissions": {},
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "classcheck",
+      "environmentVariableName": "classcheck"
+    }
+  ]
+}

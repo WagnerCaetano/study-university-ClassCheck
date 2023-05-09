@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Container } from "./src/global/ContainerView/container";
-import Tabs from "./src/navigation/tabs";
-import LoginPage from "./src/screens/Login/login";
+import { Amplify as amplifyFunctions } from "aws-amplify";
+import config from "./src/aws-exports";
+import { useEffect, useState } from "react";
+import Navigation from "./src/global/navigation/navigation";
+
+amplifyFunctions.configure(config);
 
 const Loading = () => (
   <Container>
@@ -42,7 +46,7 @@ const App = () => {
     return <Loading />;
   }
 
-  return /*loggedIn ?*/ <Tabs /> /*: <LoginPage onLogin={onLogin} />*/;
+  return <Navigation />;
 };
 
 export default App;

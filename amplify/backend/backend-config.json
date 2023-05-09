@@ -1,0 +1,95 @@
+{
+  "api": {
+    "classcheckapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "classcheck": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "classcheckapi": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_classcheckapi_classcheck": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckapi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckapi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "informacoes": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "profilepictures": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
+}

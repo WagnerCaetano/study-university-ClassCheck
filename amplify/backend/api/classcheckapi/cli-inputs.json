@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/informacoes": {
+      "name": "/informacoes",
+      "lambdaFunction": "classcheckapi",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -1,16 +1,14 @@
-import React from "react";
-import { View, Text, StyleSheet} from 'react-native';
+import * as React from "react";
+import { StyleSheet } from "react-native";
 
 import { Container } from "./style";
 
-export function Dashboard(){
-    return (
-        <Container>
-            <text> teste </text>
-        </Container>
-    )
+export function Dashboard() {
+  return (
+    <Container>
+      <text> teste </text>
+    </Container>
+  );
 }
 
-const styles = StyleSheet.create({
-
-})
+const styles = StyleSheet.create({});

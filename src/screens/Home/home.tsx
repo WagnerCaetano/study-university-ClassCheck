@@ -1,17 +1,27 @@
 import { ScrollView, Text, View } from "react-native";
 import { Container } from "../../global/ContainerView/container";
-import { PersonImage } from "../../global/PersonImage/styles";
+import { PersonImage } from "./styles";
 import { Heading, Paragraph, Row, TextoHome } from "./styles";
-import React from "react";
+import * as React from "react";
 import { CarouselComponent } from "./CarouselPack/carousel";
 import ButtonWrapper from "./ButtonWrapper/buttonWrapper";
+import { getInfoAluno } from "../../api/classCheckServices";
+import { useEffect } from "react";
 
 type HomeProps = {
   navigation: any;
 };
 
 export default function HomePage(props: HomeProps) {
-  const slideList = [{ id: "01", image: "./../../assets/placeholder/placeholder_aviso.png" }];
+  useEffect(() => {
+    const run = async () => {
+      const response = await getInfoAluno();
+      console.log(response);
+    };
+    run();
+  }, []);
+
+  const slideList = [{ id: "01", image: "./../../../assets/placeholder/placeholder_aviso.png" }];
 
   return (
     <Container>

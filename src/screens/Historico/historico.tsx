@@ -1,7 +1,18 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
-import { Container, Header, ExpandedLabel, ExpandedLabelText, HeaderLabel, BoxContainer, BoxText, ListContainer, ListItem, ListItemText } from "./styles";
+import * as React from "react";
+import { TouchableOpacity } from "react-native";
+import {
+  Container,
+  Header,
+  ExpandedLabel,
+  ExpandedLabelText,
+  HeaderLabel,
+  BoxContainer,
+  BoxText,
+  ListContainer,
+  ListItem,
+  ListItemText,
+} from "./styles";
+import { useState } from "react";
 
 const HistoricoPage = () => {
   const [expanded, setExpanded] = useState(false);

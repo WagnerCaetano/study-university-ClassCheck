@@ -1,0 +1,10 @@
+{
+  "resourceName": "informacoes",
+  "tableName": "conta",
+  "partitionKey": {
+    "fieldName": "pai",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

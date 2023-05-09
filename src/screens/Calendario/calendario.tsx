@@ -1,6 +1,5 @@
-import React from "react";
-import { Text } from "react-native";
-import styled, { ThemeProvider } from "styled-components";
+import * as React from "react";
+import { ThemeProvider } from "styled-components";
 import { Container } from "../../global/ContainerView/container";
 import { Calendar } from "react-native-calendars";
 import ButtonBack from "../../components/ButtonBack/button-blue";

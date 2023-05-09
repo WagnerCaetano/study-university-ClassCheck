@@ -1,6 +1,13 @@
 // create a button with styled component
 import styled from "styled-components/native";
 
+export const PersonImage = styled.Image`
+  width: 5em;
+  height: 5em;
+  border-radius: 50px;
+  border: 2px solid #026a6c;
+`;
+
 export const Row = styled.View`
   display: flex;
   flex-direction: row;
@@ -12,9 +19,8 @@ export const Row = styled.View`
 export const Heading = styled.Text`
   font-size: 18;
   font-weight: 700;
-  color: #026A6C;
-  font-family: 'Montserrat-Regular';
-  
+  color: #026a6c;
+  font-family: "Montserrat-Regular";
 `;
 
 export const Paragraph = styled.Text`
@@ -36,13 +42,13 @@ const SquaredButton = styled.Button`
   border-radius: 14px;
 `;
 export const TextoHome = styled.Text`
-  color: #026A6C;
+  color: #026a6c;
   position: absolute;
   width: 242px;
   height: 23px;
   left: 30px;
   top: 41%;
-  font-family: 'Montserrat-Regular';
+  font-family: "Montserrat-Regular";
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
