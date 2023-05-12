@@ -24,10 +24,17 @@ export type AmplifyDependentResourcesAttributes = {
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
+    },
+    "facedetectionclasscheckapi": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
     }
   },
   "storage": {
-    "informacoes": {
+    "classcheck": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",

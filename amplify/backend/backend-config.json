@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "classcheckapi"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "facedetectionclasscheckapi"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -53,6 +61,12 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "facedetectionclasscheckapi": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -79,10 +93,26 @@
           "resourceName": "classcheckapi"
         }
       ]
+    },
+    "AMPLIFY_function_facedetectionclasscheckapi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "facedetectionclasscheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_facedetectionclasscheckapi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "facedetectionclasscheckapi"
+        }
+      ]
     }
   },
   "storage": {
-    "informacoes": {
+    "classcheck": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },

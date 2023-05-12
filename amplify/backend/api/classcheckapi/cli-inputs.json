@@ -7,6 +7,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/photo": {
+      "name": "/photo",
+      "lambdaFunction": "facedetectionclasscheckapi",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
