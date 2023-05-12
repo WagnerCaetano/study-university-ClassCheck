@@ -15,33 +15,35 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route(BASE_ROUTE + '/<matricula>', methods=['GET'])
-def getInfo(matricula):
-    # conta = client.get_item(TableName=TABLE, Key={'pai': {'N': matricula}})
-    # return jsonify(data=conta)
-    print(matricula)
-    return jsonify[{
-        "id_usuario": 1,
-        "email_pai": "testeemail",
-        "telefone_pai": "123",
-        "historico": [
-            {
-                "id_historico": 1,
-                "data": "21/12/2023",
-                "presente": True
-            },
-            {
-                "id_historico": 2,
-                "data": "22/12/2023",
-                "presente": False
-            }
-        ],
-        "filho": {
-            "matricula": "123456",
-            "serie": "3",
-            "nome": "João"
-        }
-    }]
+@app.route('/matricula', methods=['GET'])
+def getInfo():
+    infos = {
+        # "id_usuario": 1,
+        # "email_pai": "testeemail",
+        # "telefone_pai": "123",
+        # "historico": [
+        #     {
+        #         "id_historico": 1,
+        #         "data": "21/12/2023",
+        #         "presente": True
+        #     },
+        #     {
+        #         "id_historico": 2,
+        #         "data": "22/12/2023",
+        #         "presente": False
+        #     }
+        # ],
+        # "filho": {
+        #     "matricula": "123456",
+        #     "serie": "3",
+        #     "nome": "João"
+        # }
+        "chave1": "valor1",
+        "chave2": "valor2",
+        "chave3": "valor3"
+
+    }
+    return jsonify(infos)
 
 
 def handler(event, context):
