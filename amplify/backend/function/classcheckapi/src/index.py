@@ -17,31 +17,10 @@ CORS(app)
 
 @app.route(BASE_ROUTE + '/<matricula>', methods=['GET'])
 def getInfo(matricula):
-    # conta = client.get_item(TableName=TABLE, Key={'pai': {'N': matricula}})
-    # return jsonify(data=conta)
-    print(matricula)
-    return jsonify[{
-        "id_usuario": 1,
-        "email_pai": "testeemail",
-        "telefone_pai": "123",
-        "historico": [
-            {
-                "id_historico": 1,
-                "data": "21/12/2023",
-                "presente": True
-            },
-            {
-                "id_historico": 2,
-                "data": "22/12/2023",
-                "presente": False
-            }
-        ],
-        "filho": {
-            "matricula": "123456",
-            "serie": "3",
-            "nome": "João"
-        }
-    }]
+    conta = client.get_item(TableName=TABLE, Key={
+                            'matricula': {'S': matricula}})
+    print(conta)
+    return jsonify(data=conta)
 
 
 def handler(event, context):

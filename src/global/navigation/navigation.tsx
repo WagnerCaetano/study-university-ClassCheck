@@ -9,6 +9,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Auth } from "aws-amplify";
 import { useEffect, useState } from "react";
 import LoginPage from "../../screens/Login/login";
+import PasswordChangeScreen from "../../screens/Login/PasswordChange/passwordChange";
 
 const Tab = createBottomTabNavigator();
 
@@ -69,6 +70,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? "Home" : "Login"}>
+        <Stack.Screen name="PasswordChange" component={PasswordChangeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
       </Stack.Navigator>

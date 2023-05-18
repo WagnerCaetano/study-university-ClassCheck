@@ -5,17 +5,21 @@ import { Heading, Paragraph, Row, TextoHome } from "./styles";
 import * as React from "react";
 import { CarouselComponent } from "./CarouselPack/carousel";
 import ButtonWrapper from "./ButtonWrapper/buttonWrapper";
-import { getInfoAluno } from "../../api/classCheckServices";
+import { convertDynamoDBToJson, getInfoAluno } from "../../api/classCheckServices";
 import { useEffect } from "react";
+import { Auth } from "aws-amplify";
+import { SigninContext } from "../../context/context";
 
 type HomeProps = {
   navigation: any;
 };
 
 export default function HomePage(props: HomeProps) {
+  const { userData }: any = React.useContext(SigninContext);
   useEffect(() => {
     const run = async () => {
-      const response = await getInfoAluno();
+      let response = await getInfoAluno(userData.username);
+      response = convertDynamoDBToJson(response);
       console.log(response);
     };
     run();
@@ -30,7 +34,7 @@ export default function HomePage(props: HomeProps) {
           <Heading>Bem-vindo ao ClassCheck</Heading>
           <Paragraph>Vamos te ajudar a manter seu filho seguro</Paragraph>
         </View>
-        <PersonImage source={require("./../../assets/placeholder/ProfilePicture.png")} />
+        <PersonImage source={{ uri: "./../../assets/placeholder/ProfilePicture.png" }} />
       </Row>
       <Row>
         <CarouselComponent slideList={slideList} />

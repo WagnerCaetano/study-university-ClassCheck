@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Auth } from "aws-amplify";
 import { Alert } from "react-native";
+import { SigninContext } from "../../context/context";
+import { CognitoUser } from "amazon-cognito-identity-js";
+import { showToast } from "../../components/Toast/provider";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -11,13 +14,7 @@ const LoginPage = () => {
 
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
-
-  const checkPasswordValidity = (value) => {
-    const isNonWhiteSpace = /^\S*$/;
-    if (!isNonWhiteSpace.test(value)) {
-      return "Senha não deve conter espaços em branco";
-    }
-  };
+  const { setUserData }: any = React.useContext(SigninContext);
 
   const onSignInPressed = async (data) => {
     if (loading) {
@@ -27,11 +24,16 @@ const LoginPage = () => {
     setLoading(true);
 
     try {
-      const response = await Auth.signIn(data.username, data.password);
-      console.log(response);
+      const response: any = await Auth.signIn(data.username, data.password);
+      setUserData(response);
+      if (response.challengeName == "NEW_PASSWORD_REQUIRED") {
+        navigation.navigate("PasswordChange");
+        return;
+      }
+      showToast("Login realizado com sucesso !");
       navigation.navigate("Home");
     } catch (error: any) {
-      Alert.alert("Ops erro no login", error.message);
+      showToast("Ops erro no login: " + error.message);
     } finally {
       setLoading(false);
     }
