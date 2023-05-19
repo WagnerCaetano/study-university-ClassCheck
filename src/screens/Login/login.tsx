@@ -17,7 +17,11 @@ const LoginPage = () => {
   const { setUserData }: any = React.useContext(SigninContext);
 
   const onSignInPressed = async (data) => {
-    if (loading) {
+    // MADU TESTANDO
+    navigation.navigate("Status");
+
+
+    /*if (loading) {
       return;
     }
 
@@ -36,7 +40,7 @@ const LoginPage = () => {
       showToast("Ops erro no login: " + error.message);
     } finally {
       setLoading(false);
-    }
+    }*/
   };
 
   const onForgotPasswordPressed = () => {

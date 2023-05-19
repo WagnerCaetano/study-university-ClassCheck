@@ -20,7 +20,6 @@ export const Heading = styled.Text`
   font-size: 18px;
   font-weight: 700;
   color: #026a6c;
-  font-family: "Montserrat-Regular";
 `;
 
 export const Paragraph = styled.Text`
@@ -43,7 +42,6 @@ export const TextoHome = styled.Text`
   height: 23px;
   left: 30px;
   top: 41%;
-  font-family: "Montserrat-Regular";
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
