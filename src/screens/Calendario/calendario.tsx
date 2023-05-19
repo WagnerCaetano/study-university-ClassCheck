@@ -4,7 +4,7 @@ import { Container } from "../../global/ContainerView/container";
 import { Calendar } from "react-native-calendars";
 import ButtonBack from "../../components/ButtonBack/button-blue";
 import GreenButton from "../../assets/Presenca-green-button.svg";
-import { Card, Detalhes, Presenca, Subtitulo, Titulo } from "./styles";
+import { Card, Titulo, Detalhes, Presenca, Subtitulo } from "./styles";
 
 const theme = {
   colors: {
@@ -20,7 +20,15 @@ export default function CalendarioPage() {
         <Titulo>Calendário das Aulas</Titulo>
         <Card src={GreenButton} />
         <Subtitulo>Dias que ele deve comparecer a aula</Subtitulo>
-        <Calendar
+        <Calendar theme={{
+          monthTextColor: 'white',
+          textMonthFontSize: 24,
+          arrowColor: '#333333',
+          calendarBackground: '#333333',
+          dayTextColor: '#B3B3B3',
+          textSectionTitleColor: '#B3B3B3',
+          textDisabledColor: '#616161',
+        }}
           // Customize the appearance of the calendar
           style={{
             backgroundColor: "#333333",

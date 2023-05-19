@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const Card = styled.Image`
   position: absolute;
@@ -6,7 +6,7 @@ export const Card = styled.Image`
   top: 190px;
 `;
 
-export const Titulo = styled.h2`
+export const Titulo = styled.Text`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
@@ -19,7 +19,7 @@ export const Titulo = styled.h2`
   position: absolute;
   text-transform: uppercase;
 `;
-export const Subtitulo = styled.p`
+export const Subtitulo = styled.Text`
   left: 71px;
   top: 154px;
 
@@ -31,7 +31,7 @@ export const Subtitulo = styled.p`
   line-height: 259.1%;
   color: #ffffff;
 `;
-export const Presenca = styled.p`
+export const Presenca = styled.Text`
   position: absolute;
   font-family: "Montserrat";
   font-style: normal;
@@ -41,7 +41,7 @@ export const Presenca = styled.p`
   top: 640px;
   color: #ffffff;
 `;
-export const Detalhes = styled.p`
+export const Detalhes = styled.Text`
   position: absolute;
   left: 27px;
   top: 727px;
