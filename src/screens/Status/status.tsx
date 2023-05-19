@@ -12,7 +12,7 @@ return (
         </ContainerTexto>
         <Image source={require("./../../assets/Images/ausente.png")} style={{ width: 243, height: 243}} />
         <ContainerTexto>
-        <Texto>João não está presente na sala de aula!</Texto>
+        <Texto>João não está presente na sala de aula! cuzinho</Texto>
         </ContainerTexto>
     </Rectangle>
   </Container>
