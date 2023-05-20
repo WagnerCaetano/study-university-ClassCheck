@@ -4,7 +4,6 @@ import os
 
 from flask_cors import CORS
 from flask import Flask, request, jsonify
-from uuid import uuid4
 
 client = boto3.client('dynamodb')
 
