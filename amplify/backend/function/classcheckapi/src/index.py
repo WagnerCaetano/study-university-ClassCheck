@@ -21,6 +21,18 @@ def getInfo(matricula):
     print(conta)
     return jsonify(data=conta)
 
+@app.route(BASE_ROUTE + "/<calendario>", methods=['GET'])
+def getDated():
+    return jsonify[{
+        "segunda": "aula normal",
+        "terça": "aula normal",
+        "quarta": "aula normal",
+        "quinta": "aula normal",
+        "sexta": "aula normal",
+        "sabado": "sem aula",
+        "domingo": "sem aula",
+        "feriado": "sem aula+"
+    }]
 
 def handler(event, context):
     return awsgi.response(app, event, context)

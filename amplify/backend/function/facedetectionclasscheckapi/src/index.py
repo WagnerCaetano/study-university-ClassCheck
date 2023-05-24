@@ -8,8 +8,8 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 CORS(app)
 
-AWS_ACCESS_KEY_ID = os.getenv('AWS_USER_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_USER_SECRET')
+AWS_ACCESS_KEY_ID = 'AKIAXGIKMAIDF4K4Q7PC'
+AWS_SECRET_ACCESS_KEY = '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'
 S3_REGION = 'sa-east-1'
 REKOGNITION_REGION = 'us-east-1'
 
