@@ -1,6 +1,8 @@
 import * as React from "react";
-import { Image, Text } from "react-native";
-import { Container, ContainerTexto, Rectangle, Texto} from "./styles";
+import { View, Image, Text } from "react-native";
+import { Container, ContainerImage, ContainerTexto, Rectangle, Texto, Texto2} from "./styles";
+import AusenteImage from "../../assets/SVGs/AusenteImage";
+import School from "../../assets/SVGs/School"
 
 
 export function Status (){
@@ -8,13 +10,23 @@ return (
   <Container>
     <Rectangle>
       <ContainerTexto>
-        <Texto>Hoje, 15 de novembro de 2023</Texto>
+          <Texto>15 de novembro de 2023</Texto>
         </ContainerTexto>
-        <Image source={require("./../../assets/Images/ausente.png")} style={{ width: 243, height: 243}} />
+
+        <ContainerImage>
+          <AusenteImage />
+        </ContainerImage>
+
         <ContainerTexto>
-        <Texto>João não está presente na sala de aula! cuzinho</Texto>
+          <Texto2>João não está presente na sala de aula!</Texto2>
         </ContainerTexto>
+
     </Rectangle>
+
+    <View>
+      <School />
+    </View>
+
   </Container>
   )
 };

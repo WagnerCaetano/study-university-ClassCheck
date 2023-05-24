@@ -7,7 +7,6 @@ export const Card = styled.Image`
 `;
 
 export const Titulo = styled.Text`
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
