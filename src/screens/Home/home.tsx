@@ -5,7 +5,7 @@ import { Heading, Paragraph, Row, TextoHome } from "./styles";
 import * as React from "react";
 import { CarouselComponent } from "./CarouselPack/carousel";
 import ButtonWrapper from "./ButtonWrapper/buttonWrapper";
-import { convertDynamoDBToJson, getInfoAluno } from "../../api/classCheckServices";
+import { convertDynamoDBToJson, getInfoAluno, getClassDate } from "../../api/classCheckServices";
 import { useEffect } from "react";
 import { InfoContext, SigninContext } from "../../context/context";
 
@@ -22,6 +22,10 @@ export default function HomePage() {
       console.log(response);
     });
   }, []);
+
+  useEffect(() => {
+     console.log(getClassDate());
+  })
 
   const slideList = [
     { id: "01", image: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/placeholder_aviso.png" },
