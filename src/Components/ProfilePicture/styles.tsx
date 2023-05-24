@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import image from "./Foto.png";
+import React from "react";
+import { InfoContext } from "../../context/context";
 
-const Photo = styled.img`
+const Photo = styled.Image`
   position: absolute;
   width: 200px;
   height: 200px;
@@ -13,5 +15,13 @@ const Photo = styled.img`
 `;
 
 export default function ProfilePicture() {
-  return <Photo src={image}></Photo>;
+  const { userInfo }: any = React.useContext(InfoContext);
+
+  return (
+    <Photo
+      source={{
+        uri: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/" + userInfo.matricula + ".jpg",
+      }}
+    />
+  );
 }

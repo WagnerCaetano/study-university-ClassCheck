@@ -69,6 +69,48 @@
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_classcheckapi_classcheck": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckapi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckapi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_facedetectionclasscheckapi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "facedetectionclasscheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_facedetectionclasscheckapi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "facedetectionclasscheckapi"
+        }
+      ]
+    }
+  },
   "storage": {
     "classcheck": {
       "providerPlugin": "awscloudformation",

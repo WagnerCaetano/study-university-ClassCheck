@@ -7,25 +7,25 @@ import { CarouselComponent } from "./CarouselPack/carousel";
 import ButtonWrapper from "./ButtonWrapper/buttonWrapper";
 import { convertDynamoDBToJson, getInfoAluno } from "../../api/classCheckServices";
 import { useEffect } from "react";
-import { Auth } from "aws-amplify";
-import { SigninContext } from "../../context/context";
+import { InfoContext, SigninContext } from "../../context/context";
 
-type HomeProps = {
-  navigation: any;
-};
+import "../../assets/placeholder/placeholder_aviso.png";
 
-export default function HomePage(props: HomeProps) {
-  const { userData }: any = React.useContext(SigninContext);
+export default function HomePage() {
+  const { userData, setUserData }: any = React.useContext(SigninContext);
+  const { userInfo, setUserInfo }: any = React.useContext(InfoContext);
+
   useEffect(() => {
-    const run = async () => {
-      let response = await getInfoAluno(userData.username);
+    getInfoAluno(userData.username).then((response) => {
       response = convertDynamoDBToJson(response);
+      setUserInfo(response);
       console.log(response);
-    };
-    run();
+    });
   }, []);
 
-  const slideList = [{ id: "01", image: "./../../../assets/placeholder/placeholder_aviso.png" }];
+  const slideList = [
+    { id: "01", image: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/placeholder_aviso.png" },
+  ];
 
   return (
     <Container>
@@ -34,7 +34,11 @@ export default function HomePage(props: HomeProps) {
           <Heading>Bem-vindo ao ClassCheck</Heading>
           <Paragraph>Vamos te ajudar a manter seu filho seguro</Paragraph>
         </View>
-        <PersonImage source={{ uri: "./../../assets/placeholder/ProfilePicture.png" }} />
+        <PersonImage
+          source={{
+            uri: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/" + userData.username + ".jpg",
+          }}
+        />
       </Row>
       <Row>
         <CarouselComponent slideList={slideList} />

@@ -13,8 +13,11 @@ import {
   ListItemText,
 } from "./styles";
 import { useState } from "react";
+import { InfoContext } from "../../context/context";
 
 const HistoricoPage = () => {
+  const { userInfo }: any = React.useContext(InfoContext);
+
   const [expanded, setExpanded] = useState(false);
 
   const handleExpand = () => {
@@ -38,25 +41,23 @@ const HistoricoPage = () => {
           </TouchableOpacity>
         )}
       </Header>
-      <BoxContainer>
-        <BoxText>This is a placeholder text inside a box</BoxText>
-      </BoxContainer>
       {expanded ? (
         <BoxContainer>
           <BoxText>This is an expanded placeholder text inside a box</BoxText>
         </BoxContainer>
       ) : (
-        <ListContainer>
-          <ListItem onPress={handleItemPress}>
-            <ListItemText>Item 1</ListItemText>
-          </ListItem>
-          <ListItem onPress={handleItemPress}>
-            <ListItemText>Item 2</ListItemText>
-          </ListItem>
-          <ListItem onPress={handleItemPress}>
-            <ListItemText>Item 3</ListItemText>
-          </ListItem>
-        </ListContainer>
+        <ListContainer
+          data={userInfo.historico}
+          renderItem={({ item }) => (
+            <ListItem onPress={handleItemPress}>
+              <ListItemText>
+                {item.data} - {item.hora} - {item.presente ? "Presente" : "Ausente"}
+              </ListItemText>
+            </ListItem>
+          )}
+          keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={false}
+        />
       )}
     </Container>
   );

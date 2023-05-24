@@ -1,3 +1,5 @@
+import { ReactDOM, ReactElement } from "react";
+import { FlatList } from "react-native/Libraries/Lists/FlatList";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
@@ -32,12 +34,7 @@ export const BoxText = styled.Text`
   color: #333;
 `;
 
-export const ListContainer = styled.View`
-  margin: 10px;
-  elevation: 3;
-  border-radius: 10px;
-  overflow: hidden;
-`;
+export const ListContainer = styled.FlatList`` as typeof FlatList;
 
 export const ListItem = styled.TouchableOpacity`
   background-color: #fff;
