@@ -21,11 +21,13 @@ def getInfo(matricula):
     print(conta)
     return jsonify(data=conta)
 
+
 @app.route(BASE_ROUTE + "/<lista-dias-aulas>", methods=['GET'])
 def getDated(lista):
     aulas = client.get_item(TableName=TABLE, Key={'aulas': {'S': lista}})
     print(aulas)
     return jsonify(data=aulas)
+
 
 def handler(event, context):
     return awsgi.response(app, event, context)
