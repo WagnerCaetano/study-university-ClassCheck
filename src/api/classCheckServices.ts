@@ -1,17 +1,7 @@
 import { API } from "aws-amplify";
 
-export const getClassDate = () => {
-  // return API.get("classcheckapi", "/alguma_rota_de_calendario", {});
-  return {
-    "segunda": "aula normal",
-    "terça": "aula normal",
-    "quarta": "aula normal",
-    "quinta": "aula normal",
-    "sexta": "aula normal",
-    "sabado": "sem aula",
-    "domingo": "sem aula",
-    "feriado": "sem aula"
-  }
+export const getClassDate = (lista) => {
+  return API.get("classcheckapi", "/informacoes/" + lista, {});
 }
 
 export const getInfoAluno = (matricula) => {

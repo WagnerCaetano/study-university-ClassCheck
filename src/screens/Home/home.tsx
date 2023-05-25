@@ -24,8 +24,11 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-     console.log(getClassDate());
-  })
+    getClassDate(() => {'test'}).then((response) => {
+      response = convertDynamoDBToJson(response);
+      console.log(response);
+    });
+  }, []);
 
   const slideList = [
     { id: "01", image: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/placeholder_aviso.png" },
