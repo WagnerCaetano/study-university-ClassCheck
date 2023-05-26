@@ -6,7 +6,6 @@ export const Title = styled.Text`
   height: 29px;
   left: ${(props) => props.left || 0};
   top: ${(props) => props.top || 0};
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -31,7 +30,6 @@ export const Description = styled.Text`
   position: absolute;
   left: 35px;
   top: ${(props) => props.top};
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

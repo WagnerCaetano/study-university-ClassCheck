@@ -1,8 +1,8 @@
 import { API } from "aws-amplify";
 
-export const getClassDate = (lista) => {
-  return API.get("classcheckapi", "/informacoes/" + lista, {});
-}
+export const getClassDate = () => {
+  return API.get("classcheckapi", "/informacoes/calendario", {});
+};
 
 export const getInfoAluno = (matricula) => {
   return API.get("classcheckapi", "/informacoes/" + matricula, {});
