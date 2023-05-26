@@ -26,5 +26,4 @@ export const GradientedButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   color: #ffffff;
   font-size: 20px;
-  font-family: Lato-Bold;
 `;

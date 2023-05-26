@@ -24,8 +24,7 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    getClassDate(() => {'test'}).then((response) => {
-      response = convertDynamoDBToJson(response);
+    getClassDate().then((response) => {
       console.log(response);
     });
   }, []);

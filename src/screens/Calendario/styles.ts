@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Card = styled.Image`
   position: absolute;
@@ -23,7 +23,6 @@ export const Subtitulo = styled.Text`
   top: 154px;
 
   position: absolute;
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -32,7 +31,6 @@ export const Subtitulo = styled.Text`
 `;
 export const Presenca = styled.Text`
   position: absolute;
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -44,7 +42,6 @@ export const Detalhes = styled.Text`
   position: absolute;
   left: 27px;
   top: 727px;
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
