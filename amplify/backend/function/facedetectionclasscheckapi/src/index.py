@@ -32,7 +32,7 @@ def face_comparison():
 
         user_id = request.args.get('userId')
 
-        s3_object_key = f'{user_id}.png'
+        s3_object_key = f'{user_id}.jpg'
 
         response = s3_client.get_object(
             Bucket='photos173431-staging', Key='public/'+s3_object_key)
