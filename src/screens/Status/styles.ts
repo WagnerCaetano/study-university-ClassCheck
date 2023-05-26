@@ -6,7 +6,6 @@ export const Rectangle = styled.View`
       text-align: center;
       width: 100%;
       height: 97%;
-      background-color: #EEC72E;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
@@ -49,4 +48,18 @@ export const Texto2 = styled.Text`
   font-weight: 600;
   line-height: 50px;
   display: flex;
+`;
+
+export const ContainerSeta = styled.View`
+  position: absolute;
+  width: 20px;
+  height: 29.09px;
+  left: 12px;
+  top: 25px;
+`;
+
+export const ContainerSeta2 = styled.View`
+  align-items: center;
+  position: absolute;
+  bottom: 15;
 `;

@@ -15,7 +15,7 @@ const LoginPage = () => {
   const { setUserData }: any = React.useContext(SigninContext);
 
   const handleNavigate = (user) => {
-    navigation.navigate('Status')
+    navigation.navigate('Status') 
 
     /*setUserData(user);
     if (user.challengeName == "NEW_PASSWORD_REQUIRED") {

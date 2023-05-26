@@ -12,7 +12,7 @@ import {
 } from "./styles";
 import { useContext, useState } from "react";
 import { InfoContext } from "../../context/context";
-import { Status } from "../Status/status";
+import { Status } from "../Status/presente";
 
 const HistoricoPage = () => {
   const { userInfo }: any = useContext(InfoContext);

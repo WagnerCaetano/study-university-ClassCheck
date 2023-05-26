@@ -10,7 +10,7 @@ import { Auth } from "aws-amplify";
 import { useEffect, useState } from "react";
 import LoginPage from "../../screens/Login/login";
 import PasswordChangeScreen from "../../screens/Login/PasswordChange/passwordChange";
-import { Status } from "../../screens/Status/status";
+import { Status } from "../../screens/Status/presente";
 
 const Tab = createBottomTabNavigator();
 
