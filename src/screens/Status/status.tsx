@@ -3,18 +3,19 @@ import { View, Image, Text } from "react-native";
 import { Container, ContainerImage, ContainerTexto, Rectangle, Texto, Texto2} from "./styles";
 import AusenteImage from "../../assets/SVGs/AusenteImage";
 import School from "../../assets/SVGs/School"
+import ClockImage from "../../assets/SVGs/ClockImage";
 
 
 export function Status (){
 return (
-  <Container>
+  <Container style>
     <Rectangle>
       <ContainerTexto>
           <Texto>15 de novembro de 2023</Texto>
         </ContainerTexto>
 
         <ContainerImage>
-          <AusenteImage />
+          <ClockImage />
         </ContainerImage>
 
         <ContainerTexto>

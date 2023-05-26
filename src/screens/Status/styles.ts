@@ -6,7 +6,7 @@ export const Rectangle = styled.View`
       text-align: center;
       width: 100%;
       height: 97%;
-      background-color: #F08638;
+      background-color: #EEC72E;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
@@ -39,6 +39,7 @@ export const ContainerImage = styled.View`
   width: 243px;
   height: 243px;
   align-items: center;
+  object-fit: cover;
 `;
 
 export const Texto2 = styled.Text`

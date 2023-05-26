@@ -26,7 +26,6 @@ export const Paragraph = styled.Text`
   font-size: 14px;
   font-weight: 100;
   color: #000;
-  font-family: "Montserrat";
 `;
 
 export const ButtonWrapper = styled.View`
