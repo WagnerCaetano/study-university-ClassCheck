@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Image } from "react-native";
 import { Wrapper, ButtonContainer, GradientedButton, ButtonText } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 const LocationImage = require("./../../../assets/Images/LOCATION.png");
 const IdImage = require("./../../../assets/Images/ID.png");
@@ -8,10 +9,12 @@ const InformImage = require("./../../../assets/Images/INFORM.png");
 const CalendarImage = require("./../../../assets/Images/CALENDAR.png");
 
 const ButtonWrapper = () => {
+  const navigation = useNavigation();
+
   return (
     <Wrapper>
       <ButtonContainer>
-        <GradientedButton bgColor="#32C2B9">
+        <GradientedButton onPress={() => navigation.navigate("AusenteStatus")} bgColor="#32C2B9">
           <ButtonText>PRESENÇA</ButtonText>
           <Image source={LocationImage} style={{ width: 100, height: 100 }} />
         </GradientedButton>

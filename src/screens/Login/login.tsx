@@ -15,15 +15,13 @@ const LoginPage = () => {
   const { setUserData }: any = React.useContext(SigninContext);
 
   const handleNavigate = (user) => {
-    navigation.navigate('Status') 
-
-    /*setUserData(user);
+    setUserData(user);
     if (user.challengeName == "NEW_PASSWORD_REQUIRED") {
       navigation.navigate("PasswordChange");
       return;
     }
     showToast("Login realizado com sucesso !");
-    navigation.navigate("Home");*/
+    navigation.navigate("Home");
   };
 
   React.useEffect(() => {

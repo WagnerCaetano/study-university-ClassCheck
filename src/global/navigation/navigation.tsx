@@ -10,7 +10,9 @@ import { Auth } from "aws-amplify";
 import { useEffect, useState } from "react";
 import LoginPage from "../../screens/Login/login";
 import PasswordChangeScreen from "../../screens/Login/PasswordChange/passwordChange";
-import { Status } from "../../screens/Status/presente";
+import { AusenteStatus } from "../../screens/Status/ausente";
+import { AguardeStatus } from "../../screens/Status/aguarde";
+import { PresenteStatus } from "../../screens/Status/presente";
 
 const Tab = createBottomTabNavigator();
 
@@ -71,7 +73,9 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? "Home" : "Login"}>
-        <Stack.Screen name="Status" component={Status} options={{ headerShown: false }} />
+        <Stack.Screen name="AguardeStatus" component={AguardeStatus} options={{ headerShown: false }} />
+        <Stack.Screen name="PresenteStatus" component={PresenteStatus} options={{ headerShown: false }} />
+        <Stack.Screen name="AusenteStatus" component={AusenteStatus} options={{ headerShown: false }} />
         <Stack.Screen name="PasswordChange" component={PasswordChangeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />

@@ -1,21 +1,30 @@
 import * as React from "react";
-import { View, Image, Text } from "react-native";
-import { Container, ContainerImage, ContainerSeta, ContainerSeta2, ContainerTexto, Rectangle, Texto, Texto2} from "./styles";
+import {
+  Container,
+  ContainerImage,
+  ContainerSeta,
+  ContainerSeta2,
+  ContainerTexto,
+  Rectangle,
+  Texto,
+  Texto2,
+} from "./styles";
 import SetaImage from "../../assets/SVGs/SetaImage";
 import Seta2Image from "../../assets/SVGs/Seta2Image";
 import PresenteImage from "../../assets/SVGs/PresenteImage";
 
-
-export function Status (){
-return (
-  <Container>
-    
-    <Rectangle style={{
-            backgroundColor: "#d16464",}}>
-    <ContainerSeta>
-    <SetaImage />
-    </ContainerSeta>
-      <ContainerTexto>
+export function AusenteStatus() {
+  return (
+    <Container>
+      <Rectangle
+        style={{
+          backgroundColor: "#d16464",
+        }}
+      >
+        <ContainerSeta>
+          <SetaImage />
+        </ContainerSeta>
+        <ContainerTexto>
           <Texto>teste teste</Texto>
         </ContainerTexto>
 
@@ -30,8 +39,7 @@ return (
         <ContainerSeta2>
           <Seta2Image />
         </ContainerSeta2>
-    </Rectangle>
-
-  </Container>
-  )
-};
+      </Rectangle>
+    </Container>
+  );
+}

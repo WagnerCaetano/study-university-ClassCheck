@@ -12,7 +12,8 @@ import {
 } from "./styles";
 import { useContext, useState } from "react";
 import { InfoContext } from "../../context/context";
-import { Status } from "../Status/presente";
+import { PresenteStatus } from "../Status/presente";
+import { AguardeStatus } from "../Status/aguarde";
 
 const HistoricoPage = () => {
   const { userInfo }: any = useContext(InfoContext);
@@ -24,18 +25,20 @@ const HistoricoPage = () => {
 
   return (
     <Container>
-      <Header>
-        <TouchableOpacity onPress={() => console.log("clicou no botao")}>
-          <HeaderLabel>Histórico de presença</HeaderLabel>
-        </TouchableOpacity>
-      </Header>
+      {!expanded && (
+        <Header>
+          <TouchableOpacity onPress={() => console.log("clicou no botao")}>
+            <HeaderLabel>Histórico de presença</HeaderLabel>
+          </TouchableOpacity>
+        </Header>
+      )}
       {expanded ? (
-        <>
-          <FilterButton onPress={() => setExpanded(false)}>
-            <Text>Voltar</Text>
-          </FilterButton>
-          <Status />
-        </>
+        <AguardeStatus
+          functionCallback={() => {
+            console.log("chamou");
+            setExpanded(false);
+          }}
+        />
       ) : (
         <>
           <RowFilter>
