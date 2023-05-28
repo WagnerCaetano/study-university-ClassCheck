@@ -26,7 +26,7 @@ export function PresenteStatus() {
           <SetaImage />
         </ContainerSeta>
         <ContainerTexto>
-          <Texto>Hoje, 15 de março de 2023</Texto>
+          <Texto>15 de março de 2023</Texto>
         </ContainerTexto>
 
         <ContainerImage>

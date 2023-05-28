@@ -5,41 +5,55 @@ import {
   ContainerSeta,
   ContainerSeta2,
   ContainerTexto,
+  ContainerCircle,
   Rectangle,
   Texto,
   Texto2,
 } from "./styles";
 import SetaImage from "../../assets/SVGs/SetaImage";
 import Seta2Image from "../../assets/SVGs/Seta2Image";
-import PresenteImage from "../../assets/SVGs/PresenteImage";
+import AusenteImage from "../../assets/SVGs/AusenteImage";
+import { Ionicons } from '@expo/vector-icons';
+import { Text } from "react-native";
 
 export function AusenteStatus() {
   return (
     <Container>
       <Rectangle
         style={{
-          backgroundColor: "#d16464",
+          backgroundColor: "#F08638",
         }}
       >
         <ContainerSeta>
           <SetaImage />
         </ContainerSeta>
         <ContainerTexto>
-          <Texto>teste teste</Texto>
+          <Texto>15 de março de 2023</Texto>
         </ContainerTexto>
 
         <ContainerImage>
-          <PresenteImage />
+          <AusenteImage />
         </ContainerImage>
 
         <ContainerTexto>
-          <Texto2>João está presente na sala de aula!</Texto2>
+          <Texto2>João não está presente na sala de aula!</Texto2>
         </ContainerTexto>
 
         <ContainerSeta2>
           <Seta2Image />
         </ContainerSeta2>
       </Rectangle>
+      
+      <ContainerCircle>
+      <Ionicons name="school" size={70} color="white" />
+      <Text>Ligar para a escola</Text>
+      </ContainerCircle>
+
+      <ContainerCircle>
+      <Ionicons name="call" size={70} color="white" />
+      <Text>Ligar para emergência</Text>
+      </ContainerCircle>
+      
     </Container>
   );
 }

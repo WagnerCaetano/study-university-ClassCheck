@@ -63,3 +63,13 @@ export const ContainerSeta2 = styled.View`
   position: absolute;
   bottom: 15;
 `;
+
+export const ContainerCircle = styled.View`
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 105px;
+  height: 105px;
+  background-color: #4F903E;
+  border-radius: 100%;
+`;
