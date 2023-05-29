@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { FlatList } from "react-native";
-import { Slide } from "./slide";
+import { Slide } from "../CarouselSlide/carrouselSlide";
 import * as React from "react";
 
 export function CarouselComponent({ slideList }) {
@@ -18,11 +18,6 @@ export function CarouselComponent({ slideList }) {
       setIndex(roundIndex);
     }
   }, []);
-
-  useEffect(() => {
-    console.warn(index);
-  }, [index]);
-
   return (
     <FlatList
       data={slideList}
@@ -32,7 +27,7 @@ export function CarouselComponent({ slideList }) {
       }}
       pagingEnabled
       horizontal
-      showsHorizontalScrollIndicator={true}
+      showsHorizontalScrollIndicator={false}
       onScroll={onScroll}
     />
   );

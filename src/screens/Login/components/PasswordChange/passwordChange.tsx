@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { SigninContext } from "../../../context/context";
-import { showToast } from "../../../components/Toast/provider";
+import { SigninContext } from "../../../../context/context";
+import { showToast } from "../../../../global/toast/toastProvider";
 
 const PasswordChangeScreen = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
   const { userData }: any = React.useContext(SigninContext);
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   const handlePasswordChange = async () => {
     try {

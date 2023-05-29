@@ -4,13 +4,13 @@ import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Auth } from "aws-amplify";
 import { SigninContext } from "../../context/context";
-import { showToast } from "../../components/Toast/provider";
+import { showToast } from "../../global/toast/toastProvider";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const [loading, setLoading] = useState(false);
   const { setUserData }: any = React.useContext(SigninContext);
 

@@ -1,18 +1,19 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Ionicons";
-import HistoricoPage from "../../screens/Historico/historico";
-import PerfilPage from "../../screens/Perfil/perfil";
-import HomePage from "../../screens/Home/home";
+import HistoricoPage from "../../screens/Historico/historicoPage";
+import PerfilPage from "../../screens/Perfil/perfilPage";
+import HomePage from "../../screens/Home/homePage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Auth } from "aws-amplify";
 import { useEffect, useState } from "react";
-import LoginPage from "../../screens/Login/login";
-import PasswordChangeScreen from "../../screens/Login/PasswordChange/passwordChange";
+import LoginPage from "../../screens/Login/loginPage";
+import PasswordChangeScreen from "../../screens/Login/components/PasswordChange/passwordChange";
 import { AusenteStatus } from "../../screens/Status/ausente";
 import { AguardeStatus } from "../../screens/Status/aguarde";
 import { PresenteStatus } from "../../screens/Status/presente";
+import CalendarioPage from "../../screens/Calendario/calendarioPage";
 
 const Tab = createBottomTabNavigator();
 
@@ -79,6 +80,7 @@ const Navigation = () => {
         <Stack.Screen name="PasswordChange" component={PasswordChangeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
+        <Stack.Screen name="Calendario" component={CalendarioPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

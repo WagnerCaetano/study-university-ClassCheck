@@ -13,10 +13,12 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  height: 60px;
+  height: 120;
   background-color: #fff;
   align-items: center;
   justify-content: center;
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%;
   border-bottom-width: 1px;
   border-color: #ccc;
 `;
@@ -36,11 +38,11 @@ export const RowFilter = styled.View`
 `;
 
 export const FilterButton = styled.TouchableOpacity<FilterButtonProps>`
-  background-color: ${(props) => (props?.active ? "#00FF00" : "#FFFFFF")};
+  background-color: ${(props) => (props?.active ? "#CCE1E1" : "#FFFFFF")};
   padding: 10px;
   border-radius: 10px;
   elevation: 5;
-` as typeof TouchableOpacity;
+`;
 
 export const BoxContainer = styled.View`
   background-color: #fff;

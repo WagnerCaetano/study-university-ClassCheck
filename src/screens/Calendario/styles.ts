@@ -6,6 +6,8 @@ export const Card = styled.Image`
   top: 190px;
 `;
 
+export const ButtonBack = styled.Button``;
+
 export const Titulo = styled.Text`
   font-style: normal;
   font-weight: 700;

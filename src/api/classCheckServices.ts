@@ -8,7 +8,7 @@ export const getInfoAluno = (matricula) => {
   return API.get("classcheckapi", "/informacoes/" + matricula, {});
 };
 
-export const convertDynamoDBToJson = (dynamoDBData) => {
+export const convertDynamoDBToJson = (dynamoDBData, selector = "Item") => {
   const convertAttribute = (attribute) => {
     if (attribute.S) {
       return attribute.S;
@@ -27,12 +27,20 @@ export const convertDynamoDBToJson = (dynamoDBData) => {
     }
   };
 
-  const data = dynamoDBData.data.Item;
-  const convertedData = {};
-
-  for (const key in data) {
-    convertedData[key] = convertAttribute(data[key]);
+  let data;
+  if (Array.isArray(dynamoDBData.data[selector])) {
+    data = dynamoDBData.data[selector];
+  } else {
+    data = [dynamoDBData.data[selector]];
   }
+
+  const convertedData = data.map((item) => {
+    const convertedItem = {};
+    for (const key in item) {
+      convertedItem[key] = convertAttribute(item[key]);
+    }
+    return convertedItem;
+  });
 
   return convertedData;
 };
