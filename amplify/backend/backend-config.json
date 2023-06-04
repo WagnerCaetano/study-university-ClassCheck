@@ -53,6 +53,18 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "classcheckprocessor": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "classcheckscheduler": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -77,6 +89,38 @@
         {
           "category": "function",
           "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckprocessor_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckprocessor"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckprocessor_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckprocessor"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckscheduler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckscheduler"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckscheduler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckscheduler"
         }
       ]
     }

@@ -3,12 +3,12 @@ import awsgi
 import os
 
 from flask_cors import CORS
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 
 client = boto3.client('dynamodb')
 
 BASE_ROUTE = "/informacoes"
-TABLE_NAME = os.environ.get('TABLE_NAME')
+TABLE_NAME = os.environ.get('TABLE_NAME_ALUNO')
 TABLE_NAME_CALENDARIO = os.environ.get('TABLE_NAME_CALENDARIO')
 
 app = Flask(__name__)

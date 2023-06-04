@@ -15,9 +15,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "classcheck": {
-      "Type": "String"
     }
   },
   "Conditions": {
@@ -50,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "classcheckapi",
+            "classcheckprocessor",
             {
               "Fn::Join": [
                 "",
                 [
-                  "classcheckapi",
+                  "classcheckprocessor",
                   "-",
                   {
                     "Ref": "env"
@@ -72,9 +69,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "classcheck": {
-              "Ref": "classcheck"
             },
             "TABLE_NAME_ALUNO": "responsaveis-staging",
             "TABLE_NAME_CALENDARIO": "lista-dias-aulas"
@@ -97,12 +91,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "classcheckLambdaRole5b9590d6",
+            "classcheckLambdaRole59abaf2a",
             {
               "Fn::Join": [
                 "",
                 [
-                  "classcheckLambdaRole5b9590d6",
+                  "classcheckLambdaRole59abaf2a",
                   "-",
                   {
                     "Ref": "env"
