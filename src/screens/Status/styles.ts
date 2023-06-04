@@ -64,12 +64,20 @@ export const ContainerSeta2 = styled.View`
   bottom: 15;
 `;
 
-export const ContainerCircle = styled.View`
-  align-items: center;
+export const ContainerCircle = styled.TouchableOpacity`
+  margin-top: 5px;
   flex-direction: row;
-  justify-content: flex-end;
-  width: 105px;
-  height: 105px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 100px;
+  height: 95px;
   background-color: #4F903E;
   border-radius: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`;
+
+export const ViewBotoes = styled.View`
+  align-items: center;
+  flex-direction: column;
 `;

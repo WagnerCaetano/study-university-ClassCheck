@@ -9,12 +9,34 @@ import {
   Rectangle,
   Texto,
   Texto2,
+  ViewBotoes,
 } from "./styles";
 import SetaImage from "../../assets/SVGs/SetaImage";
 import Seta2Image from "../../assets/SVGs/Seta2Image";
 import AusenteImage from "../../assets/SVGs/AusenteImage";
 import { Ionicons } from '@expo/vector-icons';
-import { Text } from "react-native";
+import { Text, View} from "react-native";
+import call from 'react-native-phone-call';
+
+const SchoolCall = () => {
+	const args = {
+		number: 5519999751576,
+		prompt: true,
+	};
+
+		//Make the call
+	call(args).catch(console.error);
+};
+
+const PoliceCall = () => {
+	const args = {
+		number: 190,
+		prompt: true,
+	};
+
+		//Make the call
+	call(args).catch(console.error);
+};
 
 export function AusenteStatus() {
   return (
@@ -39,21 +61,30 @@ export function AusenteStatus() {
           <Texto2>João não está presente na sala de aula!</Texto2>
         </ContainerTexto>
 
+        <View style={{ flexDirection: 'row', gap: 50 }}>
+      
+      <ViewBotoes>
+      <ContainerCircle onPress = {SchoolCall}>
+      <Ionicons name="school" size={60} color="white" />
+      </ContainerCircle>
+      <Text style={{color: 'white', fontWeight: '600', marginTop: 5}}>Ligar para{"\n"}escola</Text>
+      </ViewBotoes>
+
+      <ViewBotoes>
+      <ContainerCircle onPress = {PoliceCall}>
+      <Ionicons name="call" size={60} color="white" />
+      </ContainerCircle>
+      <Text style={{color: 'white', fontWeight: '600', marginTop: 5}}>Ligar para{"\n"}emergência</Text>
+      </ViewBotoes>
+
+      </View>
+
         <ContainerSeta2>
           <Seta2Image />
         </ContainerSeta2>
       </Rectangle>
-      
-      <ContainerCircle>
-      <Ionicons name="school" size={70} color="white" />
-      <Text>Ligar para a escola</Text>
-      </ContainerCircle>
 
-      <ContainerCircle>
-      <Ionicons name="call" size={70} color="white" />
-      <Text>Ligar para emergência</Text>
-      </ContainerCircle>
-      
+    
     </Container>
   );
 }
