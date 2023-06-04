@@ -75,7 +75,9 @@
             },
             "classcheck": {
               "Ref": "classcheck"
-            }
+            },
+            "TABLE_NAME": "responsaveis-staging",
+            "TABLE_NAME_CALENDARIO": "lista-dias-aulas"
           }
         },
         "Role": {

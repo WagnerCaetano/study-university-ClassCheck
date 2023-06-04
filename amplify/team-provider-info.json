@@ -23,7 +23,7 @@
         "classcheckapi": {
           "classcheck": "dev",
           "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-          "s3Key": "amplify-builds/classcheckapi-7a4f72686467754d5034-build.zip"
+          "s3Key": "amplify-builds/classcheckapi-2b657038663134534f41-build.zip"
         },
         "facedetectionapi": {}
       },

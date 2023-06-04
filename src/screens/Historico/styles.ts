@@ -3,6 +3,10 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { FlatList } from "react-native/Libraries/Lists/FlatList";
 import styled from "styled-components/native";
 
+export interface HeaderProps {
+  bgColor: string;
+}
+
 export interface FilterButtonProps {
   active: boolean;
 }
@@ -12,9 +16,9 @@ export const Container = styled.View`
   background-color: #f0f0f0;
 `;
 
-export const Header = styled.View`
+export const Header = styled.View<HeaderProps>`
   height: 120;
-  background-color: #fff;
+  background-color: ${(props) => props.bgColor};
   align-items: center;
   justify-content: center;
   border-bottom-left-radius: 20%;
@@ -26,6 +30,7 @@ export const Header = styled.View`
 export const HeaderLabel = styled.Text`
   font-size: 20px;
   font-weight: bold;
+  color: #fff;
 `;
 
 export const RowFilter = styled.View`
