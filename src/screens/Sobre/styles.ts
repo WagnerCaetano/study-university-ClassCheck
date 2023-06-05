@@ -1,35 +1,40 @@
 import styled from "styled-components/native";
 
 export const Title = styled.Text`
-  width: 353px;
-  height: 60px;
+  padding-left: 5%;
   font-weight: 500;
   font-size: 40px;
-  line-height: 259.1%;
-  /* or 104px */
   display: flex;
-  align-items: center;
 `;
 
 export const Texto = styled.Text`
-  width: 350px;
-  height: 154px;
-  left: calc(50% - 350px / 2 - 0.5px);
-  top: 128px;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 259.1%;
-  /* or 34px */
-
   display: flex;
-  align-items: center;
+  text-align: justify;
+  margin-right: 5%;
+  margin-left: 5%;
+`;
+
+export const TextoProfiles = styled.Text`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  display: flex;
+  text-align: justify;
+  margin-right: 5%;
+  margin-left: 3%;
 `;
 
 export const Profiles = styled.View`
-  background-color: red;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
 `;
 export const PersonImage = styled.Image`
+  margin-left: 3%;
   width: 5em;
   height: 5em;
   border-radius: 15vw;
