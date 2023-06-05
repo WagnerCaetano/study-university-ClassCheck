@@ -7,6 +7,10 @@ REGION = os.environ.get('REGION')
 TABLE_NAME_CALENDARIO = os.environ.get('TABLE_NAME_CALENDARIO')
 
 
+class SchedulerBypassAttendanceToday(Exception):
+    pass
+
+
 def handler(event, context):
     # Retrieve the class schedule for today from the database
     dynamodb = boto3.resource('dynamodb', region_name=REGION)
@@ -22,19 +26,14 @@ def handler(event, context):
 
     if class_schedule is None:
         # No class schedule found for today
-        return {
-            "statusCode": 404,
-            "body": json.dumps({"message": "No class schedule found for today"})
-        }
+        raise SchedulerBypassAttendanceToday(
+            "No class schedule found for today")
 
     class_hour = class_schedule.get('horario', {}).get('S')
 
     if not class_hour:
         # No class hour found for today
-        return {
-            "statusCode": 404,
-            "body": json.dumps({"message": "No class hour found for today"})
-        }
+        raise SchedulerBypassAttendanceToday("No class hour found for today")
 
     class_time = datetime.strptime(class_hour, '%H:%M').time()
     class_datetime = datetime.now().replace(
@@ -43,10 +42,8 @@ def handler(event, context):
 
     if class_datetime <= current_time:
         # The class has already occurred today
-        return {
-            "statusCode": 404,
-            "body": json.dumps({"message": "No upcoming class found for today"})
-        }
+        raise SchedulerBypassAttendanceToday(
+            "No upcoming class found for today")
 
     wait_time_seconds = int((class_datetime - current_time).total_seconds())
 

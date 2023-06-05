@@ -7,6 +7,10 @@ REGION = os.environ.get('REGION')
 TABLE_NAME_ALUNO = os.environ.get('TABLE_NAME_ALUNO')
 
 
+class StudentsNotFoundException(Exception):
+    pass
+
+
 def handler(event, context):
     # Retrieve the list of students from the database or any other source
     dynamodb = boto3.resource('dynamodb', region_name=REGION)
@@ -16,10 +20,7 @@ def handler(event, context):
 
     if not students:
         # No students found
-        return {
-            "statusCode": 404,
-            "body": json.dumps({"message": "No students found"})
-        }
+        raise StudentsNotFoundException("No students found")
 
     # Perform attendance check for each student
     for student in students:
