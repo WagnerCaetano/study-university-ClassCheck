@@ -70,7 +70,7 @@ export default function HomePage({ navigation }) {
             </GradientedButton>
           </ButtonContainer>
           <ButtonContainer>
-            <GradientedButton bgColor="#7BD164">
+          <GradientedButton onPress={() => navigationStack.navigate("about")} bgColor="#7BD164">
               <ButtonText>SOBRE</ButtonText>
               <Image source={InformImage} style={{ width: 100, height: 100 }} />
             </GradientedButton>
