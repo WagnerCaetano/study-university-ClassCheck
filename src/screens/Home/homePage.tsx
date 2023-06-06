@@ -74,7 +74,7 @@ export default function HomePage({ navigation }) {
               <ButtonText>SOBRE</ButtonText>
               <Image source={InformImage} style={{ width: 100, height: 100 }} />
             </GradientedButton>
-            <GradientedButton bgColor="#F08638">
+            <GradientedButton onPress={() => navigationStack.navigate("Calendar")} bgColor="#F08638">
               <ButtonText>CALENDÁRIO</ButtonText>
               <Image source={CalendarImage} style={{ width: 155, height: 100 }} />
             </GradientedButton>
