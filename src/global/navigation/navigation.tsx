@@ -50,8 +50,6 @@ function Home() {
       <Tab.Screen name="Historico" component={HistoricoPage} />
       <Tab.Screen name="Home" component={HomePage} />
       <Tab.Screen name="Perfil" component={PerfilPage} />
-      <Tab.Screen name="Calendar" component={CalendarioPage} />
-
     </Tab.Navigator>
   );
 }
