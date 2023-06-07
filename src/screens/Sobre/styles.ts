@@ -41,3 +41,11 @@ export const PersonImage = styled.Image`
   object-fit: contain;
   border: 2px solid #026a6c;
 `;
+
+export const Separator = styled.View`
+  align-items: center;
+  margin-top: 10px;
+  width: 90%;
+  height: 1;
+  background-color: #026a6d;
+`;

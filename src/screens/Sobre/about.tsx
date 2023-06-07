@@ -1,17 +1,25 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { Texto, Title, Profiles, PersonImage, TextoProfiles } from "./styles";
+import {
+  Texto,
+  Title,
+  Profiles,
+  PersonImage,
+  TextoProfiles,
+  Separator,
+} from "./styles";
 import SetaImage from "../../assets/SVGs/SetaImage";
 import { ContainerSeta } from "../Status/styles";
+import HomePage from "../Home/homePage";
 
 const About = () => {
   return (
     <View>
       <ContainerSeta>
-        <SetaImage onPress={() => aguardeStatusProps.functionCallback!()} />
+        <SetaImage onPress={() => HomePage.functionCallback!()} />
       </ContainerSeta>
 
-      <Title>SOBRE NÓS</Title>
+      <Title style={{ marginTop: 55 }}>SOBRE NÓS</Title>
       <Texto>
         Nosso grupo é composto por entusiastas da tecnologia e estudantes
         dedicados que buscam melhorar a comunicação entre escolas e pais por
@@ -21,6 +29,7 @@ const About = () => {
         presença dos alunos nas escolas.
       </Texto>
 
+      <Separator />
       <Title>TIME</Title>
 
       <Profiles>
@@ -59,27 +68,27 @@ const About = () => {
           source={require("../../assets/Images/HemillyProfile.jpeg")}
         />
         <TextoProfiles>
-          Sou formada como técnica em Eletroeletronica,atualmente estou cursando
-          o 3° semestre de Analise e Desenvolvimento de Sistemas,e estudando a
-          área do Front-end
+          Sou formada como técnica em Eletroeletronica, atualmente estou
+          cursando o 3° semestre de Analise e Desenvolvimento de Sistemas, e
+          estudando a área do Front-end
         </TextoProfiles>
       </Profiles>
 
       <Profiles>
-        <PersonImage source={require("../../assets/Images/GiProfile.jpeg")} />
+        <PersonImage
+          source={require("../../assets/Images/RaquelProfile.jpeg")}
+        />
         <TextoProfiles>
-          Gosta de trabalhar com python, tem estudado muito sobre inteligência
-          artificial. Atualmente trabalha com engenharia de dados e cursa
-          ciência da computação.
+          Desenvolvedora Drupal na CI&T, gosta da trabalhar com front-end e
+          atualmente está estudante React JS
         </TextoProfiles>
       </Profiles>
 
       <Profiles>
-        <PersonImage source={require("../../assets/Images/GiProfile.jpeg")} />
+        <PersonImage source={require("../../assets/Images/MaduProfile.jpeg")} />
         <TextoProfiles>
-          Gosta de trabalhar com python, tem estudado muito sobre inteligência
-          artificial. Atualmente trabalha com engenharia de dados e cursa
-          ciência da computação.
+          Cursando o 3º semestre de Ciências da computação, gosta de front-end e
+          de UI/UX
         </TextoProfiles>
       </Profiles>
     </View>
