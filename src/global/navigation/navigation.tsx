@@ -75,14 +75,46 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? "Home" : "Login"}>
-        <Stack.Screen name="about" component={about} options={{ headerShown: false }} />
-        <Stack.Screen name="AguardeStatus" component={AguardeStatus} options={{ headerShown: false }} />
-        <Stack.Screen name="PresenteStatus" component={PresenteStatus} options={{ headerShown: false }} />
-        <Stack.Screen name="AusenteStatus" component={AusenteStatus} options={{ headerShown: false }} />
+        <Stack.Screen name="about" component={about} options={{ headerShown: true,
+          headerStyle: {
+            backgroundColor: 'transparent',
+            display: 'none',
+            borderBottomColor: 'transparent',
+          },
+          headerTintColor: 'transparent',
+        }} />
+        <Stack.Screen name="AguardeStatus" component={AguardeStatus} options={{ headerShown: true,
+          headerStyle: {
+            backgroundColor: 'transparent',
+            display: 'none',
+            borderBottomColor: 'transparent',
+          },
+          headerTintColor: 'transparent',
+        }} />
+        <Stack.Screen name="PresenteStatus" component={PresenteStatus} options={{ headerShown: true,
+          headerStyle: {
+            backgroundColor: '#7BD164',
+            display: 'none',
+            borderBottomColor: 'transparent',
+          },
+          headerTintColor: 'transparent', }} />
+        <Stack.Screen name="AusenteStatus" component={AusenteStatus} options={{ headerShown: true,
+          headerStyle: {
+            backgroundColor: 'rgb(240, 134, 56)',
+            display: 'none',
+            borderBottomColor: 'transparent',
+          },
+          headerTintColor: 'transparent', }} />
         <Stack.Screen name="PasswordChange" component={PasswordChangeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
-        <Stack.Screen name="Calendario" component={CalendarioPage} options={{ headerShown: false }} />
+        <Stack.Screen name="Calendario" component={CalendarioPage} options={{ headerShown: true,
+          headerStyle: {
+            backgroundColor: 'white',
+            display: 'none',
+            borderBottomColor: 'transparent',
+          },
+          headerTintColor: 'transparent',}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

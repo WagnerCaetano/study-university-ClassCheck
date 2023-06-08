@@ -8,18 +8,12 @@ import {
   TextoProfiles,
   Separator,
 } from "./styles";
-import SetaImage from "../../assets/SVGs/SetaImage";
-import { ContainerSeta } from "../Status/styles";
-import HomePage from "../Home/homePage";
 
 const About = () => {
   return (
     <View>
-      <ContainerSeta>
-        <SetaImage onPress={() => HomePage.functionCallback!()} />
-      </ContainerSeta>
 
-      <Title style={{ marginTop: 55 }}>SOBRE NÓS</Title>
+      <Title>SOBRE NÓS</Title>
       <Texto>
         Nosso grupo é composto por entusiastas da tecnologia e estudantes
         dedicados que buscam melhorar a comunicação entre escolas e pais por

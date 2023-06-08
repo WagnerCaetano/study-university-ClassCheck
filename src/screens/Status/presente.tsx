@@ -22,9 +22,6 @@ export function PresenteStatus() {
           backgroundColor: "#7BD164",
         }}
       >
-        <ContainerSeta>
-          <SetaImage />
-        </ContainerSeta>
         <ContainerTexto>
           <Texto>15 de março de 2023</Texto>
         </ContainerTexto>

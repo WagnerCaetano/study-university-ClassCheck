@@ -26,7 +26,6 @@ export const ContainerTexto = styled.View`
 
 export const Texto = styled.Text`
   align-items: center;
-  margin-top: 25%;
   color: white;
   font-size: 30px;
   font-weight: 600;

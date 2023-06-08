@@ -46,9 +46,6 @@ export function AusenteStatus() {
           backgroundColor: "#F08638",
         }}
       >
-        <ContainerSeta>
-          <SetaImage />
-        </ContainerSeta>
         <ContainerTexto>
           <Texto>15 de março de 2023</Texto>
         </ContainerTexto>
