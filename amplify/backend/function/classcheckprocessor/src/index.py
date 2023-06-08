@@ -1,10 +1,15 @@
-import json
 import boto3
 import os
-import datetime
+import pytz
+from datetime import datetime
+# from dotenv import load_dotenv
 
-REGION = os.environ.get('REGION')
-TABLE_NAME_ALUNO = os.environ.get('TABLE_NAME_ALUNO')
+# load_dotenv()
+
+REGION = os.getenv('REGION')
+TABLE_NAME_ALUNO = os.getenv('TABLE_NAME_ALUNO')
+AWS_ACCESS_KEY_ID = os.getenv('MY_AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('MY_AWS_SECRET_ACCESS_KEY')
 
 
 class StudentsNotFoundException(Exception):
@@ -13,10 +18,11 @@ class StudentsNotFoundException(Exception):
 
 def handler(event, context):
     # Retrieve the list of students from the database or any other source
-    dynamodb = boto3.resource('dynamodb', region_name=REGION)
+    dynamodb = boto3.resource('dynamodb', region_name=REGION, aws_access_key_id=AWS_ACCESS_KEY_ID,
+                              aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
     table = dynamodb.Table(TABLE_NAME_ALUNO)
     response = table.scan()
-    students = response.get('Items', [])
+    students = response['Items']
 
     if not students:
         # No students found
@@ -24,13 +30,14 @@ def handler(event, context):
 
     # Perform attendance check for each student
     for student in students:
-        history = student.get('historico', {}).get('L', [])
-        today = datetime.now().strftime('%d/%m/%Y')
+        history = student['historico']
+        today = datetime.now(pytz.timezone(
+            'America/Sao_Paulo')).strftime('%d/%m/%Y')
 
         # Check if attendance record exists for today
         attendance_exists = False
         for entry in history:
-            if entry.get('data', {}).get('S') == today:
+            if entry['data'] == today:
                 attendance_exists = True
                 break
 
@@ -39,8 +46,8 @@ def handler(event, context):
             new_entry = {
                 "M": {
                     "data": {"S": today},
-                    "dia": {"S": datetime.now().strftime('%A').lower()},
-                    "hora": {"S": datetime.now().strftime('%H:%M')},
+                    "dia": {"S": datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%A').lower()},
+                    "hora": {"S": datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%H:%M')},
                     "id_historico": {"N": str(len(history) + 1)},
                     "presente": {"BOOL": False}
                 }
@@ -50,7 +57,7 @@ def handler(event, context):
             # Update the student's attendance record in the database
             table.update_item(
                 Key={
-                    'matricula': student['matricula']['S']
+                    'matricula': student['matricula']
                 },
                 UpdateExpression="SET historico = :h",
                 ExpressionAttributeValues={
@@ -59,6 +66,5 @@ def handler(event, context):
             )
 
     return {
-        "statusCode": 200,
-        "body": json.dumps({"message": "Attendance check completed"})
+        "message": "Attendance check completed"
     }

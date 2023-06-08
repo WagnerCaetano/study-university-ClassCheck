@@ -71,7 +71,9 @@
               "Ref": "AWS::Region"
             },
             "TABLE_NAME_ALUNO": "responsaveis-staging",
-            "TABLE_NAME_CALENDARIO": "lista-dias-aulas"
+            "TABLE_NAME_CALENDARIO": "lista-dias-aulas",
+            "MY_AWS_ACCESS_KEY_ID": "AKIAXGIKMAIDF4K4Q7PC",
+            "MY_AWS_SECRET_ACCESS_KEY": "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"
           }
         },
         "Role": {
