@@ -1,10 +1,10 @@
 {
-  "resourceName": "classcheck",
-  "tableName": "responsaveis",
-  "partitionKey": {
-    "fieldName": "matricula",
-    "fieldType": "string"
-  },
-  "gsi": [],
-  "triggerFunctions": []
+    "resourceName": "classcheck",
+    "tableName": "responsaveis",
+    "partitionKey": {
+        "fieldName": "matricula",
+        "fieldType": "string"
+    },
+    "gsi": [],
+    "triggerFunctions": []
 }
