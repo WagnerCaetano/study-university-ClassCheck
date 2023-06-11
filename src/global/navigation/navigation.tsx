@@ -15,6 +15,8 @@ import { AguardeStatus } from "../../screens/Status/aguarde";
 import { PresenteStatus } from "../../screens/Status/presente";
 import CalendarioPage from "../../screens/Calendario/calendarioPage";
 import about from "../../screens/Sobre/about";
+import SetaImage from "../../assets/SVGs/SetaImage";
+import BackButtonWhite from "../../assets/SVGs/BackButtonWhite";
 
 const Tab = createBottomTabNavigator();
 
@@ -82,6 +84,7 @@ const Navigation = () => {
             borderBottomColor: 'transparent',
           },
           headerTintColor: 'transparent',
+          headerBackImage: () => (<SetaImage style={{marginLeft: 5}} />)
         }} />
         <Stack.Screen name="AguardeStatus" component={AguardeStatus} options={{ headerShown: true,
           headerStyle: {
@@ -90,6 +93,7 @@ const Navigation = () => {
             borderBottomColor: 'transparent',
           },
           headerTintColor: 'transparent',
+          headerBackImage: () => (<BackButtonWhite style={{marginLeft: 5}} />)
         }} />
         <Stack.Screen name="PresenteStatus" component={PresenteStatus} options={{ headerShown: true,
           headerStyle: {
@@ -97,14 +101,18 @@ const Navigation = () => {
             display: 'none',
             borderBottomColor: 'transparent',
           },
-          headerTintColor: 'transparent', }} />
+          headerTintColor: 'transparent',
+          headerBackImage: () => (<BackButtonWhite style={{marginLeft: 5}} />)
+           }} />
         <Stack.Screen name="AusenteStatus" component={AusenteStatus} options={{ headerShown: true,
           headerStyle: {
             backgroundColor: 'rgb(240, 134, 56)',
             display: 'none',
             borderBottomColor: 'transparent',
           },
-          headerTintColor: 'transparent', }} />
+          headerTintColor: 'transparent',
+          headerBackImage: () => (<BackButtonWhite style={{marginLeft: 5}} />)
+           }} />
         <Stack.Screen name="PasswordChange" component={PasswordChangeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
@@ -113,8 +121,11 @@ const Navigation = () => {
             backgroundColor: 'white',
             display: 'none',
             borderBottomColor: 'transparent',
+            
           },
-          headerTintColor: 'transparent',}} />
+          headerTintColor: 'transparent',
+          headerBackImage: () => (<SetaImage style={{marginLeft: 5}} />)
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
