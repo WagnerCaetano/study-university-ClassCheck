@@ -1,129 +1,139 @@
 {
-    "api": {
-        "classcheckapi": {
-            "dependsOn": [
-                {
-                    "attributes": ["Name", "Arn"],
-                    "category": "function",
-                    "resourceName": "classcheckapi"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "API Gateway"
+  "api": {
+    "classcheckapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "classcheckapi"
         }
-    },
-    "auth": {
-        "classcheck": {
-            "customAuth": false,
-            "dependsOn": [],
-            "frontendAuthConfig": {
-                "mfaConfiguration": "OFF",
-                "mfaTypes": ["SMS"],
-                "passwordProtectionSettings": {
-                    "passwordPolicyCharacters": [
-                        "REQUIRES_LOWERCASE",
-                        "REQUIRES_NUMBERS",
-                        "REQUIRES_SYMBOLS",
-                        "REQUIRES_UPPERCASE"
-                    ],
-                    "passwordPolicyMinLength": 8
-                },
-                "signupAttributes": ["EMAIL", "NAME"],
-                "socialProviders": [],
-                "usernameAttributes": [],
-                "verificationMechanisms": ["EMAIL"]
-            },
-            "providerPlugin": "awscloudformation",
-            "service": "Cognito"
-        }
-    },
-    "function": {
-        "classcheckapi": {
-            "build": true,
-            "dependsOn": [],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "classcheckprocessor": {
-            "build": true,
-            "dependsOn": [],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "classcheckscheduler": {
-            "build": true,
-            "dependsOn": [],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        }
-    },
-    "parameters": {
-        "AMPLIFY_function_classcheckapi_classcheck": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckapi"
-                }
-            ]
-        },
-        "AMPLIFY_function_classcheckapi_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckapi"
-                }
-            ]
-        },
-        "AMPLIFY_function_classcheckapi_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckapi"
-                }
-            ]
-        },
-        "AMPLIFY_function_classcheckprocessor_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckprocessor"
-                }
-            ]
-        },
-        "AMPLIFY_function_classcheckprocessor_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckprocessor"
-                }
-            ]
-        },
-        "AMPLIFY_function_classcheckscheduler_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckscheduler"
-                }
-            ]
-        },
-        "AMPLIFY_function_classcheckscheduler_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "classcheckscheduler"
-                }
-            ]
-        }
-    },
-    "storage": {
-        "classcheck": {
-            "providerPlugin": "awscloudformation",
-            "service": "DynamoDB"
-        },
-        "profilepictures": {
-            "dependsOn": [],
-            "providerPlugin": "awscloudformation",
-            "service": "S3"
-        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
+  },
+  "auth": {
+    "classcheck": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "classcheckapi": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "classcheckprocessor": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "classcheckscheduler": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_classcheckapi_classcheck": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckapi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckapi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckapi"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckprocessor_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckprocessor"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckprocessor_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckprocessor"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckscheduler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckscheduler"
+        }
+      ]
+    },
+    "AMPLIFY_function_classcheckscheduler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "classcheckscheduler"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "classcheck": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "profilepictures": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
 }

@@ -1,43 +1,43 @@
 {
-    "staging": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-classcheck-staging-173431-authRole",
-            "UnauthRoleArn": "arn:aws:iam::494479868422:role/amplify-classcheck-staging-173431-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::494479868422:role/amplify-classcheck-staging-173431-authRole",
-            "Region": "sa-east-1",
-            "DeploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-            "UnauthRoleName": "amplify-classcheck-staging-173431-unauthRole",
-            "StackName": "amplify-classcheck-staging-173431",
-            "StackId": "arn:aws:cloudformation:sa-east-1:494479868422:stack/amplify-classcheck-staging-173431/42708bc0-ec34-11ed-b339-02a06d745ab6",
-            "AmplifyAppId": "d15xndzuu6wf2u"
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-classcheck-staging-173431-authRole",
+      "UnauthRoleArn": "arn:aws:iam::494479868422:role/amplify-classcheck-staging-173431-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::494479868422:role/amplify-classcheck-staging-173431-authRole",
+      "Region": "sa-east-1",
+      "DeploymentBucketName": "amplify-classcheck-staging-173431-deployment",
+      "UnauthRoleName": "amplify-classcheck-staging-173431-unauthRole",
+      "StackName": "amplify-classcheck-staging-173431",
+      "StackId": "arn:aws:cloudformation:sa-east-1:494479868422:stack/amplify-classcheck-staging-173431/42708bc0-ec34-11ed-b339-02a06d745ab6",
+      "AmplifyAppId": "d15xndzuu6wf2u"
+    },
+    "categories": {
+      "auth": {
+        "classcheck": {}
+      },
+      "storage": {
+        "profilepictures": {},
+        "classcheck": {}
+      },
+      "function": {
+        "classcheckapi": {
+          "classcheck": "dev",
+          "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
+          "s3Key": "amplify-builds/classcheckapi-42654e43464d50413344-build.zip"
         },
-        "categories": {
-            "auth": {
-                "classcheck": {}
-            },
-            "storage": {
-                "profilepictures": {},
-                "classcheck": {}
-            },
-            "function": {
-                "classcheckapi": {
-                    "classcheck": "dev",
-                    "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-                    "s3Key": "amplify-builds/classcheckapi-48375463654738482b51-build.zip"
-                },
-                "facedetectionapi": {},
-                "classcheckscheduler": {
-                    "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-                    "s3Key": "amplify-builds/classcheckscheduler-6e7158673756464a6a66-build.zip"
-                },
-                "classcheckprocessor": {
-                    "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-                    "s3Key": "amplify-builds/classcheckprocessor-697275754e6c76355a45-build.zip"
-                }
-            },
-            "api": {
-                "classcheckapi": {}
-            }
+        "facedetectionapi": {},
+        "classcheckscheduler": {
+          "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
+          "s3Key": "amplify-builds/classcheckscheduler-525244456b3137512b38-build.zip"
+        },
+        "classcheckprocessor": {
+          "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
+          "s3Key": "amplify-builds/classcheckprocessor-6e37336a595a412b3355-build.zip"
         }
+      },
+      "api": {
+        "classcheckapi": {}
+      }
     }
+  }
 }
