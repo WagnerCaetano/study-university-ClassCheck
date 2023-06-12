@@ -15,6 +15,8 @@ import { AguardeStatus } from '../../screens/Status/aguarde';
 import { PresenteStatus } from '../../screens/Status/presente';
 import CalendarioPage from '../../screens/Calendario/calendarioPage';
 import about from '../../screens/Sobre/about';
+import SetaImage from '../../assets/SVGs/SetaImage';
+import BackButtonWhite from '../../assets/SVGs/BackButtonWhite';
 
 const Tab = createBottomTabNavigator();
 
@@ -87,7 +89,10 @@ const Navigation = () => {
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },
-                        headerTintColor: 'transparent'
+                        headerTintColor: 'transparent',
+                        headerBackImage: () => (
+                            <SetaImage style={{ marginLeft: 5 }} />
+                        )
                     }}
                 />
                 <Stack.Screen
@@ -100,7 +105,10 @@ const Navigation = () => {
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },
-                        headerTintColor: 'transparent'
+                        headerTintColor: 'transparent',
+                        headerBackImage: () => (
+                            <BackButtonWhite style={{ marginLeft: 5 }} />
+                        )
                     }}
                 />
                 <Stack.Screen
@@ -113,7 +121,10 @@ const Navigation = () => {
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },
-                        headerTintColor: 'transparent'
+                        headerTintColor: 'transparent',
+                        headerBackImage: () => (
+                            <BackButtonWhite style={{ marginLeft: 5 }} />
+                        )
                     }}
                 />
                 <Stack.Screen
@@ -126,7 +137,10 @@ const Navigation = () => {
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },
-                        headerTintColor: 'transparent'
+                        headerTintColor: 'transparent',
+                        headerBackImage: () => (
+                            <BackButtonWhite style={{ marginLeft: 5 }} />
+                        )
                     }}
                 />
                 <Stack.Screen
@@ -154,7 +168,10 @@ const Navigation = () => {
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },
-                        headerTintColor: 'transparent'
+                        headerTintColor: 'transparent',
+                        headerBackImage: () => (
+                            <SetaImage style={{ marginLeft: 5 }} />
+                        )
                     }}
                 />
             </Stack.Navigator>
