@@ -164,13 +164,13 @@ const Navigation = () => {
                     options={{
                         headerShown: true,
                         headerStyle: {
-                            backgroundColor: 'white',
+                            backgroundColor: 'rgb(50, 194, 185)',
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },
                         headerTintColor: 'transparent',
                         headerBackImage: () => (
-                            <SetaImage style={{ marginLeft: 5 }} />
+                            <BackButtonWhite style={{ marginLeft: 5 }} />
                         )
                     }}
                 />

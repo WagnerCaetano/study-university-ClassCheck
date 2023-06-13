@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-<<<<<<< HEAD
   Container,
   ContainerImage,
   ContainerSeta,
@@ -37,44 +36,6 @@ const PoliceCall = () => {
 
   //Make the call
   call(args).catch(console.error);
-=======
-    Container,
-    ContainerImage,
-    ContainerSeta,
-    ContainerSeta2,
-    ContainerTexto,
-    ContainerCircle,
-    Rectangle,
-    Texto,
-    Texto2,
-    ViewBotoes
-} from './styles';
-import SetaImage from '../../assets/SVGs/SetaImage';
-import Seta2Image from '../../assets/SVGs/Seta2Image';
-import AusenteImage from '../../assets/SVGs/AusenteImage';
-import { Ionicons } from '@expo/vector-icons';
-import { Text, View } from 'react-native';
-import call from 'react-native-phone-call';
-
-const SchoolCall = () => {
-    const args = {
-        number: 5519999751576,
-        prompt: true
-    };
-
-    //Make the call
-    call(args).catch(console.error);
-};
-
-const PoliceCall = () => {
-    const args = {
-        number: 190,
-        prompt: true
-    };
-
-    //Make the call
-    call(args).catch(console.error);
->>>>>>> 1c2d93906fe13f0deee22c6e803e31086de0bf81
 };
 
 export function AusenteStatus() {
@@ -97,7 +58,6 @@ export function AusenteStatus() {
                     <Texto2>João não está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
-<<<<<<< HEAD
         <View style={{ flexDirection: "row", gap: 50 }}>
           <ViewBotoes>
             <ContainerCircle onPress={SchoolCall}>
@@ -124,44 +84,4 @@ export function AusenteStatus() {
       </Rectangle>
     </Container>
   );
-=======
-                <View style={{ flexDirection: 'row', gap: 50 }}>
-                    <ViewBotoes>
-                        <ContainerCircle onPress={SchoolCall}>
-                            <Ionicons name="school" size={60} color="white" />
-                        </ContainerCircle>
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontWeight: '600',
-                                marginTop: 5
-                            }}
-                        >
-                            Ligar para{'\n'}escola
-                        </Text>
-                    </ViewBotoes>
-
-                    <ViewBotoes>
-                        <ContainerCircle onPress={PoliceCall}>
-                            <Ionicons name="call" size={60} color="white" />
-                        </ContainerCircle>
-                        <Text
-                            style={{
-                                color: 'white',
-                                fontWeight: '600',
-                                marginTop: 5
-                            }}
-                        >
-                            Ligar para{'\n'}emergência
-                        </Text>
-                    </ViewBotoes>
-                </View>
-
-                <ContainerSeta2>
-                    <Seta2Image />
-                </ContainerSeta2>
-            </Rectangle>
-        </Container>
-    );
->>>>>>> 1c2d93906fe13f0deee22c6e803e31086de0bf81
 }
