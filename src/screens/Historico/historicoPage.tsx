@@ -68,10 +68,6 @@ const HistoricoPage = () => {
         });
     }, []);
 
-    React.useEffect(() => {
-        console.log(aulasHoje);
-    }, [aulasHoje]);
-
     const handleFilter = (day: string) => {
         if (day === selectedDay) {
             setSelectedDay('');
@@ -80,6 +76,10 @@ const HistoricoPage = () => {
         setSelectedDay(day);
     };
 
+    React.useEffect(() => {
+        console.log(aulasHoje);
+    }, [aulasHoje]);
+
     const handleClassesToday = (
         today: any,
         setAulasHoje: any,
@@ -87,17 +87,20 @@ const HistoricoPage = () => {
     ) => {
         if (!!today) {
             if (
-                today.horario.split(':')[0] > new Date().getHours() &&
-                today.horario.split(':')[1] > new Date().getMinutes()
+                (today.horario.split(':')[0] > new Date().getHours() &&
+                    today.horario.split(':')[1] > new Date().getMinutes()) ||
+                (today.horario.split(':')[0] == new Date().getHours() &&
+                    today.horario.split(':')[1] > new Date().getMinutes())
             ) {
                 setAulasHoje('aguarde');
             } else {
                 const jaPassou = userInfo?.historico?.find((item: any) => {
                     const dataHoje = item.data.split('/');
+                    console.log(dataHoje);
                     return (
-                        dataHoje[0] === new Date().getDate() &&
-                        dataHoje[1] === new Date().getMonth() + 1 &&
-                        dataHoje[2] === new Date().getFullYear()
+                        dataHoje[0] == new Date().getDate() &&
+                        dataHoje[1] == new Date().getMonth() + 1 &&
+                        dataHoje[2] == new Date().getFullYear()
                     );
                 });
                 if (jaPassou) {
@@ -153,7 +156,9 @@ const HistoricoPage = () => {
                     renderItem={({ item }) => (
                         <ListItem
                             present={item.presente}
-                            onPress={handleNavigationCard}
+                            onPress={() => {
+                                handleNavigationCard(item);
+                            }}
                         >
                             <ListItemText>
                                 {item.dia} - {item.data} - {item.hora} -{' '}

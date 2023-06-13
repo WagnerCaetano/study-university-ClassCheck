@@ -28,11 +28,11 @@
         "facedetectionapi": {},
         "classcheckscheduler": {
           "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-          "s3Key": "amplify-builds/classcheckscheduler-525244456b3137512b38-build.zip"
+          "s3Key": "amplify-builds/classcheckscheduler-723366344a35306b6f50-build.zip"
         },
         "classcheckprocessor": {
           "deploymentBucketName": "amplify-classcheck-staging-173431-deployment",
-          "s3Key": "amplify-builds/classcheckprocessor-6e37336a595a412b3355-build.zip"
+          "s3Key": "amplify-builds/classcheckprocessor-5a63557265326670744b-build.zip"
         }
       },
       "api": {

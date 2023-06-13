@@ -1,4 +1,3 @@
-import json
 import boto3
 import os
 import pytz
@@ -72,7 +71,7 @@ def handler(event, context):
     # Prepare the output with the class schedule and wait time
     output = {
         "classSchedule": class_schedule,
-        "waitTime": wait_time_seconds + (30 * 60)
+        "waitTime": wait_time_seconds + (10 * 60)
     }
 
     return output

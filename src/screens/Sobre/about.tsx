@@ -37,7 +37,7 @@ const About = () => {
                 />
                 <TextoProfiles>
                     Desenvolvedor Fullstack na CI&T, atualmente no projeto do
-                    Itaú, trabalho com a stack Angular + Java ❤️ + AWS
+                    Itaú, trabalho com a stack Angular + Java + AWS
                     (aprendendo React e NextJs) e cursando o 5º semestre de
                     Ciência da Computação
                 </TextoProfiles>
