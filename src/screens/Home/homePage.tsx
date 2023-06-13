@@ -1,10 +1,21 @@
 import { Image, ScrollView, Text, View } from "react-native";
 import { Container } from "../../global/container/container";
-import { ButtonContainer, ButtonText, Column, GradientedButton, PersonImage, Wrapper } from "./styles";
+import {
+  ButtonContainer,
+  ButtonText,
+  Column,
+  GradientedButton,
+  PersonImage,
+  Wrapper,
+} from "./styles";
 import { Heading, Paragraph, Row, TextoHome } from "./styles";
 import * as React from "react";
 import { CarouselComponent } from "./components/CarouselWrapper/carousel";
-import { convertDynamoDBToJson, getInfoAluno, getClassDate } from "../../api/classCheckServices";
+import {
+  convertDynamoDBToJson,
+  getInfoAluno,
+  getClassDate,
+} from "../../api/classCheckServices";
 import { useEffect } from "react";
 import { InfoContext, SigninContext } from "../../context/context";
 import { useNavigation } from "@react-navigation/native";
@@ -35,8 +46,16 @@ export default function HomePage({ navigation }) {
   }, []);
 
   const slideList = [
-    { id: "01", image: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/aviso1.png" },
-    { id: "02", image: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/aviso2.png" },
+    {
+      id: "01",
+      image:
+        "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/aviso1.png",
+    },
+    {
+      id: "02",
+      image:
+        "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/aviso2.png",
+    },
   ];
 
   return (
@@ -44,11 +63,14 @@ export default function HomePage({ navigation }) {
       <Row>
         <View>
           <Heading>Bem-vindo ao ClassCheck</Heading>
-          <Paragraph>Vamos te ajudar a manter seu filho seguro</Paragraph>
+          <Paragraph>Vamos te ajudar a manter seu filho{"\n"}seguro</Paragraph>
         </View>
         <PersonImage
           source={{
-            uri: "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/" + userData.username + ".jpg",
+            uri:
+              "https://photos173431-staging.s3.sa-east-1.amazonaws.com/public/" +
+              userData.username +
+              ".jpg",
           }}
         />
       </Row>
@@ -60,23 +82,41 @@ export default function HomePage({ navigation }) {
         <TextoHome>Navegue por aqui</TextoHome>
         <Wrapper>
           <ButtonContainer>
-            <GradientedButton onPress={() => navigationStack.navigate("AusenteStatus")} bgColor="#32C2B9">
+            <GradientedButton
+              onPress={() => navigationStack.navigate("AusenteStatus")}
+              bgColor="#32C2B9"
+            >
               <ButtonText>PRESENÇA</ButtonText>
-              <Image source={LocationImage} style={{ width: 100, height: 100 }} />
+              <Image
+                source={LocationImage}
+                style={{ width: 100, height: 100 }}
+              />
             </GradientedButton>
-            <GradientedButton onPress={() => navigation.jumpTo("Perfil")} bgColor="#EEC72E">
+            <GradientedButton
+              onPress={() => navigation.jumpTo("Perfil")}
+              bgColor="#EEC72E"
+            >
               <ButtonText>PERFIL</ButtonText>
               <Image source={IdImage} style={{ width: 100, height: 100 }} />
             </GradientedButton>
           </ButtonContainer>
           <ButtonContainer>
-          <GradientedButton onPress={() => navigationStack.navigate("about")} bgColor="#7BD164">
+            <GradientedButton
+              onPress={() => navigationStack.navigate("about")}
+              bgColor="#7BD164"
+            >
               <ButtonText>SOBRE</ButtonText>
               <Image source={InformImage} style={{ width: 100, height: 100 }} />
             </GradientedButton>
-            <GradientedButton onPress={() => navigationStack.navigate("Calendario")} bgColor="#F08638">
+            <GradientedButton
+              onPress={() => navigationStack.navigate("Calendario")}
+              bgColor="#F08638"
+            >
               <ButtonText>CALENDÁRIO</ButtonText>
-              <Image source={CalendarImage} style={{ width: 155, height: 100 }} />
+              <Image
+                source={CalendarImage}
+                style={{ width: 155, height: 100 }}
+              />
             </GradientedButton>
           </ButtonContainer>
         </Wrapper>

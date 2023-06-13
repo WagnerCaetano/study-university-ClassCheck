@@ -1,20 +1,19 @@
 import styled from "styled-components/native";
 
 export const Rectangle = styled.View`
-      position: fixed;
-      padding: 5%;
-      text-align: center;
-      width: 100%;
-      height: 97%;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-left-radius: 68px;
-      border-bottom-right-radius: 68px;
-      align-items: center;
-      
- `;
- export const Container = styled.View`
+  position: fixed;
+  padding: 5%;
+  text-align: center;
+  width: 100%;
+  height: 87%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 68px;
+  border-bottom-right-radius: 68px;
+  align-items: center;
+`;
+export const Container = styled.View`
   align-items: center;
   flex: 1;
   display: flex;
@@ -60,7 +59,7 @@ export const ContainerSeta = styled.View`
 export const ContainerSeta2 = styled.View`
   align-items: center;
   position: absolute;
-  bottom: 15;
+  bottom: 10;
 `;
 
 export const ContainerCircle = styled.TouchableOpacity`
@@ -71,7 +70,7 @@ export const ContainerCircle = styled.TouchableOpacity`
   padding: 10px;
   width: 100px;
   height: 95px;
-  background-color: #4F903E;
+  background-color: #4f903e;
   border-radius: 100%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;

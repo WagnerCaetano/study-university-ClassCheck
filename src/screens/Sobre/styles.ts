@@ -39,13 +39,30 @@ export const PersonImage = styled.Image`
   height: 5em;
   border-radius: 15vw;
   object-fit: contain;
-  border: 2px solid #026a6c;
 `;
-
 export const Separator = styled.View`
   align-items: center;
   margin-top: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
   width: 90%;
   height: 1;
   background-color: #026a6d;
+`;
+export const ContainerEmail = styled.View`
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-direction: row;
+  gap: 10px;
+`;
+export const TextEmail = styled.Text`
+  color: #026a6d;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  margin-bottom: 2%;
+`;
+export const NamesProfiles = styled.Text`
+  font-weight: bold;
 `;
