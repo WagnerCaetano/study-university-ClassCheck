@@ -68,10 +68,6 @@ const HistoricoPage = () => {
         });
     }, []);
 
-    React.useEffect(() => {
-        console.log(aulasHoje);
-    }, [aulasHoje]);
-
     const handleFilter = (day: string) => {
         if (day === selectedDay) {
             setSelectedDay('');
@@ -80,6 +76,10 @@ const HistoricoPage = () => {
         setSelectedDay(day);
     };
 
+    React.useEffect(() => {
+        console.log(aulasHoje);
+    }, [aulasHoje]);
+
     const handleClassesToday = (
         today: any,
         setAulasHoje: any,
@@ -87,8 +87,10 @@ const HistoricoPage = () => {
     ) => {
         if (!!today) {
             if (
-                today.horario.split(':')[0] > new Date().getHours() &&
-                today.horario.split(':')[1] > new Date().getMinutes()
+                (today.horario.split(':')[0] > new Date().getHours() &&
+                    today.horario.split(':')[1] > new Date().getMinutes()) ||
+                (today.horario.split(':')[0] == new Date().getHours() &&
+                    today.horario.split(':')[1] > new Date().getMinutes())
             ) {
                 setAulasHoje('aguarde');
             } else {

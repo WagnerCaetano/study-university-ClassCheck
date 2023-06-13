@@ -9,8 +9,42 @@ import {
     Subtitulo,
     Container
 } from './styles';
+import {
+    convertDynamoDBToJson,
+    getClassDate
+} from '../../api/classCheckServices';
+import { useContext, useState } from 'react';
+import {
+    getNextSevenDays,
+    parseDate,
+    returnHourOfClasses
+} from '../../utils/daysHelper';
+import { InfoContext } from '../../context/context';
 
 export default function CalendarioPage() {
+    const [selectedDay, setSelectedDay] = useState<Date>(new Date());
+    const [days, setDays] = useState([]);
+    const { userInfo }: any = useContext(InfoContext);
+
+    const calculatePercentageOfPresenceUsinUserInfo = (historico: any[]) => {
+        const totalClasses = historico?.length;
+        const totalClassesPresent = historico?.filter(
+            (item) => item.presente === true
+        ).length;
+        const percentageOfPresence = (totalClassesPresent / totalClasses) * 100;
+        return percentageOfPresence.toFixed(2);
+    };
+
+    React.useEffect(() => {
+        getClassDate().then((response) => {
+            const responseConverted: any = convertDynamoDBToJson(
+                response,
+                'Items'
+            );
+            setDays(responseConverted);
+        });
+    }, []);
+
     return (
         <Container>
             <Titulo>Calendário das Aulas</Titulo>
@@ -34,31 +68,29 @@ export default function CalendarioPage() {
                     height: '100%',
                     borderRadius: 14
                 }}
-                // Specify the current date
-                current={'2023-04-26'}
                 // Callback that gets called when the user selects a day
                 onDayPress={(day) => {
-                    console.log('selected day', day);
+                    setSelectedDay(parseDate(day.dateString));
                 }}
+                // Specify the initial date yyyy-mm-dd
+                initialDate={
+                    new Date().getFullYear() +
+                    '-' +
+                    (new Date().getMonth() + 1) +
+                    '-' +
+                    new Date().getDate()
+                }
                 // Mark specific dates as marked
-                markedDates={{
-                    '2023-04-01': {
-                        selected: true,
-                        marked: true,
-                        selectedColor: 'green'
-                    },
-                    '2023-04-02': { marked: true },
-                    '2023-04-03': {
-                        selected: true,
-                        marked: true,
-                        selectedColor: 'green'
-                    }
-                }}
+                markedDates={
+                    !!days && days.length > 0 ? getNextSevenDays(days) : {}
+                }
             />
-            <Presenca>Porcentagem de presença: 75,3%</Presenca>
+            <Presenca>
+                Porcentagem de presença:{' '}
+                {calculatePercentageOfPresenceUsinUserInfo(userInfo?.historico)}
+            </Presenca>
             <Detalhes>
-                O aluno está dentro da porcentagem esperada de presença! Tudo
-                certo por aqui
+                A sua aula hoje é às {returnHourOfClasses(selectedDay, days)}
             </Detalhes>
         </Container>
     );
