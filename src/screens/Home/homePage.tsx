@@ -58,6 +58,8 @@ export default function HomePage({ navigation }) {
     },
   ];
 
+  const StatusPresente = true;
+
   return (
     <Container>
       <Row>
@@ -83,7 +85,7 @@ export default function HomePage({ navigation }) {
         <Wrapper>
           <ButtonContainer>
             <GradientedButton
-              onPress={() => navigationStack.navigate("AusenteStatus")}
+              onPress={() => StatusPresente ? navigationStack.navigate("PresenteStatus") : navigationStack.navigate("AusenteStatus")}
               bgColor="#32C2B9"
             >
               <ButtonText>PRESENÇA</ButtonText>
