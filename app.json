@@ -1,10 +1,15 @@
 {
-  "expo": {
-    "name": "class_check",
-    "slug": "class_check",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  }
+    "expo": {
+        "name": "class_check",
+        "slug": "class_check",
+        "version": "1.0.0",
+        "assetBundlePatterns": ["**/*"],
+        "android": {
+            "package": "com.wagnercaetanodev.class_check",
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/anImageThatDoesNotExist.png",
+                "backgroundColor": "#FFFFFF"
+            }
+        }
+    }
 }

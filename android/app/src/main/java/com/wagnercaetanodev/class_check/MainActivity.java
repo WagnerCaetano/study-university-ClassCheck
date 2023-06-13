@@ -1,4 +1,4 @@
-package com.classcheck;
+package com.wagnercaetanodev.class_check;
 
 import android.os.Build;
 import android.os.Bundle;
