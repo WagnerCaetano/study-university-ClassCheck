@@ -10,6 +10,15 @@ REGION = os.getenv('REGION')
 TABLE_NAME_ALUNO = os.getenv('TABLE_NAME_ALUNO')
 AWS_ACCESS_KEY_ID = os.getenv('MY_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('MY_AWS_SECRET_ACCESS_KEY')
+WEEK_DAYS_MAP = {
+    "monday": "segunda",
+    "tuesday": "terça",
+    "wednesday": "quarta",
+    "thursday": "quinta",
+    "friday": "sexta",
+    "saturday": "sábado",
+    "sunday": "domingo"
+}
 
 
 class StudentsNotFoundException(Exception):
@@ -45,7 +54,7 @@ def handler(event, context):
         if not attendance_exists:
             new_entry = {
                 "data": today,
-                "dia": datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%A').lower(),
+                "dia": WEEK_DAYS_MAP[datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%A').lower()],
                 "hora": datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%H:%M'),
                 "id_historico": str(len(history) + 1),
                 "presente": False

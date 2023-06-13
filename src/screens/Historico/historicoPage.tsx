@@ -96,10 +96,11 @@ const HistoricoPage = () => {
             } else {
                 const jaPassou = userInfo?.historico?.find((item: any) => {
                     const dataHoje = item.data.split('/');
+                    console.log(dataHoje);
                     return (
-                        dataHoje[0] === new Date().getDate() &&
-                        dataHoje[1] === new Date().getMonth() + 1 &&
-                        dataHoje[2] === new Date().getFullYear()
+                        dataHoje[0] == new Date().getDate() &&
+                        dataHoje[1] == new Date().getMonth() + 1 &&
+                        dataHoje[2] == new Date().getFullYear()
                     );
                 });
                 if (jaPassou) {
@@ -155,7 +156,9 @@ const HistoricoPage = () => {
                     renderItem={({ item }) => (
                         <ListItem
                             present={item.presente}
-                            onPress={handleNavigationCard}
+                            onPress={() => {
+                                handleNavigationCard(item);
+                            }}
                         >
                             <ListItemText>
                                 {item.dia} - {item.data} - {item.hora} -{' '}
