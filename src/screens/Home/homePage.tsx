@@ -29,6 +29,41 @@ export default function HomePage({ navigation }) {
     const navigationStack = useNavigation<any>();
     const { userData, setUserData }: any = React.useContext(SigninContext);
     const { userInfo, setUserInfo }: any = React.useContext(InfoContext);
+    const handleClassesToday = (
+        today: any,
+        setAulasHoje: any,
+        userInfo: any
+    ) => {
+        if (!!today) {
+            if (
+                (today.horario.split(':')[0] > new Date().getHours() &&
+                    today.horario.split(':')[1] > new Date().getMinutes()) ||
+                (today.horario.split(':')[0] == new Date().getHours() &&
+                    today.horario.split(':')[1] > new Date().getMinutes())
+            ) {
+                setAulasHoje('aguarde');
+            } else {
+                const jaPassou = userInfo?.historico?.find((item: any) => {
+                    const dataHoje = item.data.split('/');
+                    console.log(dataHoje);
+                    return (
+                        dataHoje[0] == new Date().getDate() &&
+                        dataHoje[1] == new Date().getMonth() + 1 &&
+                        dataHoje[2] == new Date().getFullYear()
+                    );
+                });
+                if (jaPassou) {
+                    jaPassou.presente
+                        ? setAulasHoje('presente')
+                        : setAulasHoje('ausente');
+                } else {
+                    setAulasHoje('aguarde-chamada');
+                }
+            }
+        } else {
+            setAulasHoje('aguarde');
+        }
+    };
 
     useEffect(() => {
         getInfoAluno(userData.username).then((response) => {
@@ -86,7 +121,7 @@ export default function HomePage({ navigation }) {
                     <ButtonContainer>
                         <GradientedButton
                             onPress={() =>
-                                StatusPresente
+                                userInfo
                                     ? navigationStack.navigate('PresenteStatus')
                                     : navigationStack.navigate('AusenteStatus')
                             }
