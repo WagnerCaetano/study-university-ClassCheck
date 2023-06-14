@@ -12,9 +12,10 @@ import {
 } from "./styles";
 import AusenteImage from "../../assets/SVGs/AusenteImage";
 import { Ionicons } from "@expo/vector-icons";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import call from "react-native-phone-call";
 import Seta2Image from '../../assets/SVGs/Seta2Image';
+import { useLinkTo } from '@react-navigation/native';
 
 const SchoolCall = () => {
   const args = {
@@ -37,6 +38,7 @@ const PoliceCall = () => {
 };
 
 export function AusenteStatus() {
+    const linkTo = useLinkTo();
     return (
         <Container>
             <Rectangle
@@ -89,7 +91,12 @@ export function AusenteStatus() {
                 </View>
 
                 <ContainerSeta2>
+
+                <TouchableOpacity onPress={() => linkTo('/Historico/historicoPage')}>
+                    
                     <Seta2Image />
+                
+                </TouchableOpacity>
                 </ContainerSeta2>
             </Rectangle>
         </Container>

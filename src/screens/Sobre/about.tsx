@@ -30,7 +30,7 @@ const About = () => {
         desenvolvemos um projeto que visa aprimorar o processo de controle de
         presença dos alunos nas escolas.
       </Texto>
-
+<Separator />
             <Profiles>
                 <PersonImage
                     source={require('../../assets/Images/WagnerProfile.jpeg')}

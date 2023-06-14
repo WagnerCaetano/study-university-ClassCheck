@@ -27,7 +27,7 @@ export const LoginButton = styled.TouchableOpacity`
     border-radius: 10px;
     border: 0;
     padding: 10px;
-    width: 70%;
+    width: 60%;
     align-self: center;
     background-color: #026a6d;
     color: white;
@@ -36,7 +36,7 @@ export const LoginButton = styled.TouchableOpacity`
 `;
 
 export const LoginButtonText = styled.Text`
-    font-size: 32px;
+    font-size: 26px;
     color: white;
 `;
 
@@ -51,6 +51,10 @@ export const Input = styled.TextInput`
 `;
 
 export const LabelText = styled.Text`
-    margin-top: 15px;
     font-size: 20px;
+`;
+
+export const ForgotPassword = styled.Text`
+    font-size: 13px;
+    color: darkblue;
 `;
