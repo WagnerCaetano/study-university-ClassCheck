@@ -1,44 +1,44 @@
 import * as React from 'react';
 import {
-    Container,
-    ContainerImage,
-    ContainerSeta,
-    ContainerSeta2,
-    ContainerTexto,
-    ContainerCircle,
-    Rectangle,
-    Texto,
-    Texto2,
-    ViewBotoes
-} from './styles';
-import SetaImage from '../../assets/SVGs/SetaImage';
+  Container,
+  ContainerImage,
+  ContainerTexto,
+  ContainerCircle,
+  Rectangle,
+  Texto,
+  Texto2,
+  ViewBotoes,
+  ContainerSeta2
+} from "./styles";
+import AusenteImage from "../../assets/SVGs/AusenteImage";
+import { Ionicons } from "@expo/vector-icons";
+import { Text, View, TouchableOpacity } from "react-native";
+import call from "react-native-phone-call";
 import Seta2Image from '../../assets/SVGs/Seta2Image';
-import AusenteImage from '../../assets/SVGs/AusenteImage';
-import { Ionicons } from '@expo/vector-icons';
-import { Text, View } from 'react-native';
-import call from 'react-native-phone-call';
+import { useLinkTo } from '@react-navigation/native';
 
 const SchoolCall = () => {
-    const args = {
-        number: 5519999751576,
-        prompt: true
-    };
+  const args = {
+    number: 5519999751576,
+    prompt: true,
+  };
 
-    //Make the call
-    call(args).catch(console.error);
+  //Make the call
+  call(args).catch(console.error);
 };
 
 const PoliceCall = () => {
-    const args = {
-        number: 190,
-        prompt: true
-    };
+  const args = {
+    number: 190,
+    prompt: true,
+  };
 
-    //Make the call
-    call(args).catch(console.error);
+  //Make the call
+  call(args).catch(console.error);
 };
 
 export function AusenteStatus() {
+    const linkTo = useLinkTo();
     return (
         <Container>
             <Rectangle
@@ -58,7 +58,7 @@ export function AusenteStatus() {
                     <Texto2>João não está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
-                <View style={{ flexDirection: 'row', gap: 50 }}>
+                <View style={{ flexDirection: 'row', gap: 50, alignContent: 'center', justifyContent: 'center' }}>
                     <ViewBotoes>
                         <ContainerCircle onPress={SchoolCall}>
                             <Ionicons name="school" size={60} color="white" />
@@ -91,7 +91,12 @@ export function AusenteStatus() {
                 </View>
 
                 <ContainerSeta2>
+
+                <TouchableOpacity onPress={() => linkTo('/Historico/historicoPage')}>
+                    
                     <Seta2Image />
+                
+                </TouchableOpacity>
                 </ContainerSeta2>
             </Rectangle>
         </Container>

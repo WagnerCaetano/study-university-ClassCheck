@@ -5,14 +5,18 @@ import {
     Input,
     ColorfulBackground,
     LoginContainer,
-    LoginButtonText
+    LoginButtonText,
+    ForgotPassword
 } from './styles';
 import { useState } from 'react';
+import { Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Auth } from 'aws-amplify';
 import { SigninContext } from '../../context/context';
 import { showToast } from '../../global/toast/toastProvider';
 
+
+const ParentsImage = require('./../../assets/Images/ParentsImage.png');
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -69,8 +73,13 @@ const LoginPage = () => {
 
     return (
         <ColorfulBackground>
+         <Image
+            source={ParentsImage}
+            style={{ width: 400, height: 360, zIndex: 1}}
+                            />
             <LoginContainer>
-                <LabelText>RA do aluno</LabelText>
+           
+                <LabelText style={{marginTop: 50}}>RA do aluno</LabelText>
                 <Input
                     placeholder="RA do Aluno"
                     value={username}
@@ -83,15 +92,16 @@ const LoginPage = () => {
                     onChangeText={setPassword}
                     secureTextEntry
                 />
-                <LabelText onPress={onForgotPasswordPressed}>
-                    Esqueci a senha
-                </LabelText>
+                
+                <ForgotPassword onPress={onForgotPasswordPressed}>
+                    Esqueci minha senha
+                </ForgotPassword>
                 <LoginButton>
                     <LoginButtonText
                         onClick={() => onSignInPressed({ username, password })}
                     >
                         {' '}
-                        {loading ? 'Carregando' : 'Entrar'}
+                        {loading ? 'Carregando' : 'Login'}
                     </LoginButtonText>
                 </LoginButton>
             </LoginContainer>

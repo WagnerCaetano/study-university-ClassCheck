@@ -1,19 +1,20 @@
 import * as React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import {
     Container,
     ContainerImage,
     ContainerSeta,
-    ContainerSeta2,
     ContainerTexto,
     Rectangle,
     Texto,
-    Texto2
+    Texto2,
+    ContainerSeta2
 } from './styles';
 import ClockImage from '../../assets/SVGs/ClockImage';
 import SetaImage from '../../assets/SVGs/SetaImage';
 import Seta2Image from '../../assets/SVGs/Seta2Image';
 import { useNavigation } from '@react-navigation/native';
+import { useLinkTo } from '@react-navigation/native';
 
 export interface AguardeStatusProps {
     functionCallback?: () => void;
@@ -21,6 +22,7 @@ export interface AguardeStatusProps {
 
 export function AguardeStatus(aguardeStatusProps: AguardeStatusProps) {
     const navigation = useNavigation();
+    const linkTo = useLinkTo();
 
     return (
         <Container>
@@ -31,7 +33,6 @@ export function AguardeStatus(aguardeStatusProps: AguardeStatusProps) {
             >
                 <ContainerSeta>
                     <SetaImage
-                        onPress={() => aguardeStatusProps.functionCallback!()}
                     />
                 </ContainerSeta>
                 <ContainerTexto>
@@ -47,7 +48,11 @@ export function AguardeStatus(aguardeStatusProps: AguardeStatusProps) {
                 </ContainerTexto>
 
                 <ContainerSeta2>
+                <TouchableOpacity onPress={() => linkTo('/Historico/historicoPage')}>
+                    
                     <Seta2Image />
+                
+                </TouchableOpacity>
                 </ContainerSeta2>
             </Rectangle>
         </Container>
