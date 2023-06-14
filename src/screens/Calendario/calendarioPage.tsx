@@ -7,7 +7,8 @@ import {
     Detalhes,
     Presenca,
     Subtitulo,
-    Container
+    Container,
+    GreenSquare
 } from './styles';
 import {
     convertDynamoDBToJson,
@@ -20,6 +21,7 @@ import {
     returnHourOfClasses
 } from '../../utils/daysHelper';
 import { InfoContext } from '../../context/context';
+import { View } from 'react-native';
 
 export default function CalendarioPage() {
     const [selectedDay, setSelectedDay] = useState<Date>(new Date());
@@ -49,7 +51,10 @@ export default function CalendarioPage() {
         <Container>
             <Titulo>Calendário das Aulas</Titulo>
             <Card src={GreenButton} />
-            <Subtitulo>Dias que ele deve comparecer a aula</Subtitulo>
+            <View style = {{flexDirection: 'row', alignItems: 'center', gap: 10}}>
+            <GreenSquare />
+            <Subtitulo>Dias que deve-se comparecer a aula</Subtitulo>
+            </View>
             <Calendar
                 theme={{
                     monthTextColor: 'white',
@@ -86,11 +91,11 @@ export default function CalendarioPage() {
                 }
             />
             <Presenca>
-                Porcentagem de presença:{' '}
-                {calculatePercentageOfPresenceUsinUserInfo(userInfo?.historico)}
+                Porcentagem de presença:{'  '}
+                {calculatePercentageOfPresenceUsinUserInfo(userInfo?.historico)}%
             </Presenca>
             <Detalhes>
-                A sua aula hoje é às {returnHourOfClasses(selectedDay, days)}
+                A sua aula hoje começas às {returnHourOfClasses(selectedDay, days)}h
             </Detalhes>
         </Container>
     );

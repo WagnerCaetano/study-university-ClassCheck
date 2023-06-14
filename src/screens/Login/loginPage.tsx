@@ -14,11 +14,9 @@ import { useNavigation } from '@react-navigation/native';
 import { Auth } from 'aws-amplify';
 import { SigninContext } from '../../context/context';
 import { showToast } from '../../global/toast/toastProvider';
-import { useLinkTo } from '@react-navigation/native';
 
 
 const ParentsImage = require('./../../assets/Images/ParentsImage.png');
-const linkTo = useLinkTo();
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -69,6 +67,10 @@ const LoginPage = () => {
         }
     };
 
+    const onForgotPasswordPressed = () => {
+        //navigation.navigate("ForgotPassword");
+    };
+
     return (
         <ColorfulBackground>
          <Image
@@ -90,7 +92,8 @@ const LoginPage = () => {
                     onChangeText={setPassword}
                     secureTextEntry
                 />
-                <ForgotPassword onPress={() => linkTo('/Login/Working')}>
+                
+                <ForgotPassword onPress={onForgotPasswordPressed}>
                     Esqueci minha senha
                 </ForgotPassword>
                 <LoginButton>

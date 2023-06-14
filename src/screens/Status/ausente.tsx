@@ -58,7 +58,7 @@ export function AusenteStatus() {
                     <Texto2>João não está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
-                <View style={{ flexDirection: 'row', gap: 50 }}>
+                <View style={{ flexDirection: 'row', gap: 50, alignContent: 'center', justifyContent: 'center' }}>
                     <ViewBotoes>
                         <ContainerCircle onPress={SchoolCall}>
                             <Ionicons name="school" size={60} color="white" />
