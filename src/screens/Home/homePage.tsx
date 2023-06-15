@@ -30,18 +30,34 @@ export default function HomePage({ navigation }) {
     const { userData, setUserData }: any = React.useContext(SigninContext);
     const { userInfo, setUserInfo }: any = React.useContext(InfoContext);
 
+    const handlePressPresencaHoje = () => {
+        const jaTemDados = userInfo?.historico?.find((item: any) => {
+            const dataHoje = item.data.split('/');
+            return (
+                dataHoje[0] == new Date().getDate() &&
+                dataHoje[1] == new Date().getMonth() + 1 &&
+                dataHoje[2] == new Date().getFullYear()
+            );
+        });
+        if (jaTemDados.presente) {
+            navigationStack.navigate('PresenteStatus');
+        } else if (!jaTemDados.presente) {
+            navigationStack.navigate('AusenteStatus');
+        } else {
+            navigationStack.navigate('AguardeStatus');
+        }
+    };
+
     useEffect(() => {
         getInfoAluno(userData.username).then((response) => {
             response = convertDynamoDBToJson(response);
             setUserInfo(response[0]);
-            console.log(response[0]);
         });
     }, []);
 
     useEffect(() => {
         getClassDate().then((response) => {
             response = convertDynamoDBToJson(response, 'Items');
-            console.log(response);
         });
     }, []);
 
@@ -85,11 +101,7 @@ export default function HomePage({ navigation }) {
                 <Wrapper>
                     <ButtonContainer>
                         <GradientedButton
-                            onPress={() =>
-                                StatusPresente
-                                    ? navigationStack.navigate('PresenteStatus')
-                                    : navigationStack.navigate('AusenteStatus')
-                            }
+                            onPress={handlePressPresencaHoje}
                             bgColor="#32C2B9"
                         >
                             <ButtonText>PRESENÇA</ButtonText>
