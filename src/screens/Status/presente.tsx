@@ -18,6 +18,15 @@ import { InfoContext } from '../../context/context';
 export function PresenteStatus() {
 const linkTo = useLinkTo();
 const { userInfo }: any = React.useContext(InfoContext);
+const jaPassou = userInfo?.historico?.find((item: any) => {
+    const dataHoje = item.data.split('/');
+    console.log(dataHoje);
+    return (
+        dataHoje[0] == new Date().getDate() &&
+        dataHoje[1] == new Date().getMonth() + 1 &&
+        dataHoje[2] == new Date().getFullYear()
+    );
+});
 
     return (
         <Container>
@@ -27,7 +36,7 @@ const { userInfo }: any = React.useContext(InfoContext);
                 }}
             >
                 <ContainerTexto>
-                    <Texto>15 de março de 2023</Texto>
+                    <Texto>{jaPassou.data}</Texto>
                 </ContainerTexto>
 
                 <ContainerImage>

@@ -58,7 +58,7 @@ export function AusenteStatus() {
                 </ContainerImage>
 
                 <ContainerTexto>
-                    <Texto2>J{userInfo.filho.nome}o não está presente na sala de aula!</Texto2>
+                    <Texto2>{userInfo.filho.nome} não está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
                 <View style={{ flexDirection: 'row', gap: 50, alignContent: 'center', justifyContent: 'center' }}>
