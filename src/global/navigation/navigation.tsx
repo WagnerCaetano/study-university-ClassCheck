@@ -17,6 +17,7 @@ import CalendarioPage from '../../screens/Calendario/calendarioPage';
 import about from '../../screens/Sobre/about';
 import SetaImage from '../../assets/SVGs/SetaImage';
 import BackButtonWhite from '../../assets/SVGs/BackButtonWhite';
+import WorkingPage from '../../screens/Login/WorkingPage'
 
 const Tab = createBottomTabNavigator();
 
@@ -174,6 +175,22 @@ const Navigation = () => {
                         )
                     }}
                 />
+                <Stack.Screen
+                    name="WorkingPage"
+                    component={WorkingPage}
+                    options={{
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: 'rgb(50, 194, 185)',
+                            display: 'none',
+                            borderBottomColor: 'transparent'
+                        },
+                        headerTintColor: 'transparent',
+                        headerBackImage: () => (
+                            <BackButtonWhite style={{ marginLeft: 5 }} />
+                        )
+                    }}
+                    />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -54,7 +54,7 @@ export const LabelText = styled.Text`
     font-size: 20px;
 `;
 
-export const ForgotPassword = styled.Text`
-    font-size: 13px;
+export const ForgotPassword = styled.TouchableOpacity`
+    font-size: 15px;
     color: darkblue;
 `;
