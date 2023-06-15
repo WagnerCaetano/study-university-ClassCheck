@@ -89,8 +89,7 @@ const HistoricoPage = () => {
     ) => {
         if (!!today) {
             if (
-                (today.horario.split(':')[0] > new Date().getHours() &&
-                    today.horario.split(':')[1] > new Date().getMinutes()) ||
+                today.horario.split(':')[0] > new Date().getHours() ||
                 (today.horario.split(':')[0] == new Date().getHours() &&
                     today.horario.split(':')[1] > new Date().getMinutes())
             ) {
