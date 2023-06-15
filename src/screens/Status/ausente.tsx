@@ -16,6 +16,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import call from "react-native-phone-call";
 import Seta2Image from '../../assets/SVGs/Seta2Image';
 import { useLinkTo } from '@react-navigation/native';
+import { InfoContext } from '../../context/context';
 
 const SchoolCall = () => {
   const args = {
@@ -39,6 +40,8 @@ const PoliceCall = () => {
 
 export function AusenteStatus() {
     const linkTo = useLinkTo();
+    const { userInfo }: any = React.useContext(InfoContext);
+
     return (
         <Container>
             <Rectangle
@@ -55,7 +58,7 @@ export function AusenteStatus() {
                 </ContainerImage>
 
                 <ContainerTexto>
-                    <Texto2>João não está presente na sala de aula!</Texto2>
+                    <Texto2>{userInfo.filho.nome} não está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
                 <View style={{ flexDirection: 'row', gap: 50, alignContent: 'center', justifyContent: 'center' }}>

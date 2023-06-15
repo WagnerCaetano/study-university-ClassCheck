@@ -13,9 +13,20 @@ import Seta2Image from '../../assets/SVGs/Seta2Image';
 import PresenteImage from '../../assets/SVGs/PresenteImage';
 import { useLinkTo } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { InfoContext } from '../../context/context';
 
 export function PresenteStatus() {
 const linkTo = useLinkTo();
+const { userInfo }: any = React.useContext(InfoContext);
+const jaPassou = userInfo?.historico?.find((item: any) => {
+    const dataHoje = item.data.split('/');
+    console.log(dataHoje);
+    return (
+        dataHoje[0] == new Date().getDate() &&
+        dataHoje[1] == new Date().getMonth() + 1 &&
+        dataHoje[2] == new Date().getFullYear()
+    );
+});
 
     return (
         <Container>
@@ -25,7 +36,7 @@ const linkTo = useLinkTo();
                 }}
             >
                 <ContainerTexto>
-                    <Texto>15 de março de 2023</Texto>
+                    <Texto>{jaPassou.data}</Texto>
                 </ContainerTexto>
 
                 <ContainerImage>
@@ -33,7 +44,7 @@ const linkTo = useLinkTo();
                 </ContainerImage>
 
                 <ContainerTexto>
-                    <Texto2>João está presente na sala de aula!</Texto2>
+                    <Texto2>{userInfo.filho.nome} está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
                 <ContainerSeta2>
