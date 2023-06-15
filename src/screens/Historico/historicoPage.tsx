@@ -20,19 +20,25 @@ import {
 import { doesTodayHaveClasses } from '../../utils/daysHelper';
 import { DinamicHeader } from './components/dinamicHeader';
 
-const mapStateAulasHoje = (navigation): any => ({
+const mapStateAulasHoje = (navigation, userInfo): any => ({
     presente: {
         text: 'Seu filho(a) está presente',
         color: '#7bD164',
         functionCallback: () => {
-            navigation.navigate('PresenteStatus');
+            navigation.navigate('PresenteStatus', {
+                data: new Date().toLocaleDateString(),
+                nome: userInfo?.filho?.nome?.split(' ')[0]
+            });
         }
     },
     ausente: {
         text: 'Seu filho(a) está ausente',
         color: '#F08638',
         functionCallback: () => {
-            navigation.navigate('AusenteStatus');
+            navigation.navigate('AusenteStatus', {
+                data: new Date().toLocaleDateString(),
+                nome: userInfo?.filho?.nome?.split(' ')[0]
+            });
         }
     },
     'aguarde-chamada': {
@@ -76,10 +82,6 @@ const HistoricoPage = () => {
         setSelectedDay(day);
     };
 
-    React.useEffect(() => {
-        console.log(aulasHoje);
-    }, [aulasHoje]);
-
     const handleClassesToday = (
         today: any,
         setAulasHoje: any,
@@ -96,7 +98,6 @@ const HistoricoPage = () => {
             } else {
                 const jaPassou = userInfo?.historico?.find((item: any) => {
                     const dataHoje = item.data.split('/');
-                    console.log(dataHoje);
                     return (
                         dataHoje[0] == new Date().getDate() &&
                         dataHoje[1] == new Date().getMonth() + 1 &&
@@ -118,15 +119,23 @@ const HistoricoPage = () => {
 
     const handleNavigationCard = (item) => {
         item.presente
-            ? navigation.navigate('PresenteStatus')
-            : navigation.navigate('AusenteStatus');
+            ? navigation.navigate('PresenteStatus', {
+                  data: item.data,
+                  nome: userInfo?.filho?.nome?.split(' ')[0]
+              })
+            : navigation.navigate('AusenteStatus', {
+                  data: item.data,
+                  nome: userInfo?.filho?.nome?.split(' ')[0]
+              });
     };
 
     return (
         <Container>
             {aulasHoje != '' && (
                 <DinamicHeader
-                    data={{ ...mapStateAulasHoje(navigation)[aulasHoje] }}
+                    data={{
+                        ...mapStateAulasHoje(navigation, userInfo)[aulasHoje]
+                    }}
                 />
             )}
 

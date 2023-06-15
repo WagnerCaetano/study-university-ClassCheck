@@ -17,30 +17,38 @@ import call from "react-native-phone-call";
 import Seta2Image from '../../assets/SVGs/Seta2Image';
 import { useLinkTo } from '@react-navigation/native';
 import { InfoContext } from '../../context/context';
+import { mapMonths } from '../../utils/daysHelper';
 
 const SchoolCall = () => {
-  const args = {
-    number: 5519999751576,
-    prompt: true,
-  };
+    const args = {
+        number: 5519999751576,
+        prompt: true
+    };
 
-  //Make the call
-  call(args).catch(console.error);
+    //Make the call
+    call(args).catch(console.error);
 };
 
 const PoliceCall = () => {
-  const args = {
-    number: 190,
-    prompt: true,
-  };
+    const args = {
+        number: 190,
+        prompt: true
+    };
 
-  //Make the call
-  call(args).catch(console.error);
+    //Make the call
+    call(args).catch(console.error);
 };
 
-export function AusenteStatus() {
+export function AusenteStatus({ navigation, route }) {
     const linkTo = useLinkTo();
     const { userInfo }: any = React.useContext(InfoContext);
+
+    const handleData = () => {
+        const data = route?.params?.data?.split('/');
+        console.log(data);
+        console.log(`${data[0]} de ${mapMonths[data[1]]} de ${data[2]}`);
+        return `${data[0]} de ${mapMonths[data[1]]} de ${data[2]}`;
+    };
 
     return (
         <Container>
@@ -50,7 +58,7 @@ export function AusenteStatus() {
                 }}
             >
                 <ContainerTexto>
-                    <Texto>15 de março de 2023</Texto>
+                    <Texto>{handleData()}</Texto>
                 </ContainerTexto>
 
                 <ContainerImage>
@@ -58,10 +66,19 @@ export function AusenteStatus() {
                 </ContainerImage>
 
                 <ContainerTexto>
-                    <Texto2>{userInfo.filho.nome} não está presente na sala de aula!</Texto2>
+                    <Texto2>
+                        {route.params.nome} não está presente na sala de aula!
+                    </Texto2>
                 </ContainerTexto>
 
-                <View style={{ flexDirection: 'row', gap: 50, alignContent: 'center', justifyContent: 'center' }}>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        gap: 50,
+                        alignContent: 'center',
+                        justifyContent: 'center'
+                    }}
+                >
                     <ViewBotoes>
                         <ContainerCircle onPress={SchoolCall}>
                             <Ionicons name="school" size={60} color="white" />
@@ -94,12 +111,11 @@ export function AusenteStatus() {
                 </View>
 
                 <ContainerSeta2>
-
-                <TouchableOpacity onPress={() => linkTo('/Historico/historicoPage')}>
-                    
-                    <Seta2Image />
-                
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => linkTo('/Historico/historicoPage')}
+                    >
+                        <Seta2Image />
+                    </TouchableOpacity>
                 </ContainerSeta2>
             </Rectangle>
         </Container>

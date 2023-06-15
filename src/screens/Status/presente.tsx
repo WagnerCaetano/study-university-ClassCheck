@@ -14,19 +14,17 @@ import PresenteImage from '../../assets/SVGs/PresenteImage';
 import { useLinkTo } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { InfoContext } from '../../context/context';
+import { mapMonths } from '../../utils/daysHelper';
 
-export function PresenteStatus() {
-const linkTo = useLinkTo();
-const { userInfo }: any = React.useContext(InfoContext);
-const jaPassou = userInfo?.historico?.find((item: any) => {
-    const dataHoje = item.data.split('/');
-    console.log(dataHoje);
-    return (
-        dataHoje[0] == new Date().getDate() &&
-        dataHoje[1] == new Date().getMonth() + 1 &&
-        dataHoje[2] == new Date().getFullYear()
-    );
-});
+export function PresenteStatus({ navigation, route }) {
+    const linkTo = useLinkTo();
+
+    const handleData = () => {
+        const data = route?.params?.data?.split('/');
+        console.log(data);
+        console.log(`${data[0]} de ${mapMonths[data[1]]} de ${data[2]}`);
+        return `${data[0]} de ${mapMonths[data[1]]} de ${data[2]}`;
+    };
 
     return (
         <Container>
@@ -36,7 +34,7 @@ const jaPassou = userInfo?.historico?.find((item: any) => {
                 }}
             >
                 <ContainerTexto>
-                    <Texto>{jaPassou.data}</Texto>
+                    <Texto>{handleData()}</Texto>
                 </ContainerTexto>
 
                 <ContainerImage>
@@ -44,18 +42,18 @@ const jaPassou = userInfo?.historico?.find((item: any) => {
                 </ContainerImage>
 
                 <ContainerTexto>
-                    <Texto2>{userInfo.filho.nome} está presente na sala de aula!</Texto2>
+                    <Texto2>
+                        {route.params.nome} está presente na sala de aula!
+                    </Texto2>
                 </ContainerTexto>
 
                 <ContainerSeta2>
-
-                <TouchableOpacity onPress={() => linkTo('/Historico/historicoPage')}>
-                    
-                    <Seta2Image />
-                
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => linkTo('/Historico/historicoPage')}
+                    >
+                        <Seta2Image />
+                    </TouchableOpacity>
                 </ContainerSeta2>
-
             </Rectangle>
         </Container>
     );

@@ -39,10 +39,16 @@ export default function HomePage({ navigation }) {
                 dataHoje[2] == new Date().getFullYear()
             );
         });
-        if (jaTemDados.presente) {
-            navigationStack.navigate('PresenteStatus');
-        } else if (!jaTemDados.presente) {
-            navigationStack.navigate('AusenteStatus');
+        if (jaTemDados && jaTemDados.presente) {
+            navigationStack.navigate('PresenteStatus', {
+                data: jaTemDados.data,
+                nome: userInfo.filho?.nome?.split(' ')[0]
+            });
+        } else if (jaTemDados && !jaTemDados.presente) {
+            navigationStack.navigate('AusenteStatus', {
+                data: jaTemDados.data,
+                nome: userInfo.filho?.nome?.split(' ')[0]
+            });
         } else {
             navigationStack.navigate('AguardeStatus');
         }
@@ -52,6 +58,7 @@ export default function HomePage({ navigation }) {
         getInfoAluno(userData.username).then((response) => {
             response = convertDynamoDBToJson(response);
             setUserInfo(response[0]);
+            console.log(response[0]);
         });
     }, []);
 

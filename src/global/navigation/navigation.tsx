@@ -101,7 +101,7 @@ const Navigation = () => {
                     options={{
                         headerShown: true,
                         headerStyle: {
-                            backgroundColor: 'transparent',
+                            backgroundColor: 'rgb(238, 199, 46)',
                             display: 'none',
                             borderBottomColor: 'transparent'
                         },

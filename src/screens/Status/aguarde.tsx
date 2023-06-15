@@ -31,10 +31,6 @@ export function AguardeStatus(aguardeStatusProps: AguardeStatusProps) {
                     backgroundColor: '#EEC72E'
                 }}
             >
-                <ContainerSeta>
-                    <SetaImage
-                    />
-                </ContainerSeta>
                 <ContainerTexto>
                     <Texto>Ops, parece que a aula ainda não começou!</Texto>
                 </ContainerTexto>
@@ -48,11 +44,11 @@ export function AguardeStatus(aguardeStatusProps: AguardeStatusProps) {
                 </ContainerTexto>
 
                 <ContainerSeta2>
-                <TouchableOpacity onPress={() => linkTo('/Historico/historicoPage')}>
-                    
-                    <Seta2Image />
-                
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => linkTo('/Historico/historicoPage')}
+                    >
+                        <Seta2Image />
+                    </TouchableOpacity>
                 </ContainerSeta2>
             </Rectangle>
         </Container>
