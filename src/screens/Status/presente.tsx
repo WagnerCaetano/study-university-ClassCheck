@@ -13,9 +13,11 @@ import Seta2Image from '../../assets/SVGs/Seta2Image';
 import PresenteImage from '../../assets/SVGs/PresenteImage';
 import { useLinkTo } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { InfoContext } from '../../context/context';
 
 export function PresenteStatus() {
 const linkTo = useLinkTo();
+const { userInfo }: any = React.useContext(InfoContext);
 
     return (
         <Container>
@@ -33,7 +35,7 @@ const linkTo = useLinkTo();
                 </ContainerImage>
 
                 <ContainerTexto>
-                    <Texto2>João está presente na sala de aula!</Texto2>
+                    <Texto2>{userInfo.filho.nome} está presente na sala de aula!</Texto2>
                 </ContainerTexto>
 
                 <ContainerSeta2>
