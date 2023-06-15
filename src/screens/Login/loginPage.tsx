@@ -68,7 +68,7 @@ const LoginPage = () => {
     };
 
     const onForgotPasswordPressed = () => {
-        //navigation.navigate("ForgotPassword");
+        navigation.navigate("WorkingPage");
     };
 
     return (
