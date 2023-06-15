@@ -29,39 +29,22 @@ export default function HomePage({ navigation }) {
     const navigationStack = useNavigation<any>();
     const { userData, setUserData }: any = React.useContext(SigninContext);
     const { userInfo, setUserInfo }: any = React.useContext(InfoContext);
-    const handleClassesToday = (
-        today: any,
-        setAulasHoje: any,
-        userInfo: any
-    ) => {
-        if (!!today) {
-            if (
-                (today.horario.split(':')[0] > new Date().getHours() &&
-                    today.horario.split(':')[1] > new Date().getMinutes()) ||
-                (today.horario.split(':')[0] == new Date().getHours() &&
-                    today.horario.split(':')[1] > new Date().getMinutes())
-            ) {
-                setAulasHoje('aguarde');
-            } else {
-                const jaPassou = userInfo?.historico?.find((item: any) => {
-                    const dataHoje = item.data.split('/');
-                    console.log(dataHoje);
-                    return (
-                        dataHoje[0] == new Date().getDate() &&
-                        dataHoje[1] == new Date().getMonth() + 1 &&
-                        dataHoje[2] == new Date().getFullYear()
-                    );
-                });
-                if (jaPassou) {
-                    jaPassou.presente
-                        ? setAulasHoje('presente')
-                        : setAulasHoje('ausente');
-                } else {
-                    setAulasHoje('aguarde-chamada');
-                }
-            }
+
+    const handlePressPresencaHoje = () => {
+        const jaTemDados = userInfo?.historico?.find((item: any) => {
+            const dataHoje = item.data.split('/');
+            return (
+                dataHoje[0] == new Date().getDate() &&
+                dataHoje[1] == new Date().getMonth() + 1 &&
+                dataHoje[2] == new Date().getFullYear()
+            );
+        });
+        if (jaTemDados.presente) {
+            navigationStack.navigate('PresenteStatus');
+        } else if (!jaTemDados.presente) {
+            navigationStack.navigate('AusenteStatus');
         } else {
-            setAulasHoje('aguarde');
+            navigationStack.navigate('AguardeStatus');
         }
     };
 
@@ -69,14 +52,12 @@ export default function HomePage({ navigation }) {
         getInfoAluno(userData.username).then((response) => {
             response = convertDynamoDBToJson(response);
             setUserInfo(response[0]);
-            console.log(response[0]);
         });
     }, []);
 
     useEffect(() => {
         getClassDate().then((response) => {
             response = convertDynamoDBToJson(response, 'Items');
-            console.log(response);
         });
     }, []);
 
@@ -120,11 +101,7 @@ export default function HomePage({ navigation }) {
                 <Wrapper>
                     <ButtonContainer>
                         <GradientedButton
-                            onPress={() =>
-                                userInfo
-                                    ? navigationStack.navigate('PresenteStatus')
-                                    : navigationStack.navigate('AusenteStatus')
-                            }
+                            onPress={handlePressPresencaHoje}
                             bgColor="#32C2B9"
                         >
                             <ButtonText>PRESENÇA</ButtonText>
