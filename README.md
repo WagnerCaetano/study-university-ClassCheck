@@ -394,7 +394,12 @@ ClassCheck Mobile App  ◀──────────── API Gateway  ◀�
 
 ## Credits
 
-- **Author:** [Wagner Caetano](https://github.com/WagnerCaetano)
+**Authors:** 
+-[Wagner Caetano](https://github.com/WagnerCaetano)
+-[Raquel Penteado](https://github.com/RaquelPenteado)
+-[Maria Eduarda Corrêa](https://github.com/madudxs)
+-[Giovana Alves](https://github.com/Xonfana)
+
 - Developed as an academic study at university on mobile development, AWS cloud services, facial recognition, and automated student attendance management.
 
 ---
